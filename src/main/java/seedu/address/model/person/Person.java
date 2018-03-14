@@ -27,7 +27,7 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address, SocialMedia sm, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
@@ -52,6 +52,8 @@ public class Person {
     public Address getAddress() {
         return address;
     }
+
+    //public SocialMedia getSocialMedia() { return socialMedia; }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
