@@ -2,7 +2,7 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-public class SocialMedia {
+public class SocialMedia { //need to integrate with adding a person
 
     //currently only supports facebook and wechat
     private String facebook_url;
@@ -46,6 +46,7 @@ public class SocialMedia {
         return true;
     }
 
+    /*
     @Override
     public String toString() {
         String returnMe = "";
@@ -59,5 +60,5 @@ public class SocialMedia {
             returnMe += wechat_username;
         }
         return returnMe;
-    }
+    }*/
 }
