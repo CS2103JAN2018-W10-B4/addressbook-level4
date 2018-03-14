@@ -45,4 +45,19 @@ public class SocialMedia {
         wechat_username = user;
         return true;
     }
+
+    @Override
+    public String toString() {
+        String returnMe = "";
+        if (facebook_url != null) {
+            returnMe += "Facebook is: ";
+            returnMe += facebook_url;
+        }
+
+        if (wechat_username != null) {
+            returnMe += "WeChat username is: ";
+            returnMe += wechat_username;
+        }
+        return returnMe;
+    }
 }
