@@ -28,6 +28,10 @@ public class ExportContactsCommand extends UndoableCommand {
 
     public static final String SUCCESS = "Contacts successfully exported.\n";
 
+    public static final String COMMAND_WORD = "export_contacts";
+    public static final String COMMAND_ALIAS = "ec";
+
+
     public ExportContactsCommand() {
         WRITE_TO_PATH = getDefaultPath();
     }
