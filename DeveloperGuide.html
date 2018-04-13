@@ -96,9 +96,13 @@
 <li><a href="#glossary">Appendix F: Glossary</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#deleting-dated-persons">G.1. Deleting dated persons</a></li>
+<li><a href="#adding-an-appointment">G.2. Adding an appointment</a></li>
+<li><a href="#deleting-an-appointment">G.3. Deleting an appointment</a></li>
+<li><a href="#zooming-in-calendar-view">G.4. Zooming in calendar view</a></li>
+<li><a href="#zooming-out-calendar-view">G.5. Zooming out calendar view</a></li>
+<li><a href="#going-backward-on-calendar-view">G.6. Going backward on calendar view</a></li>
+<li><a href="#going-forward-on-calendar-view">G.7. Going forward on calendar view</a></li>
 </ul>
 </li>
 </ul>
@@ -3488,7 +3492,7 @@ date who match all tags specified by the user</p>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>Must be aesthetically appealing which follows Googles Material Design principles</p>
+<p>Must be aesthetically appealing which follows Google Material Design principles</p>
 </li>
 <li>
 <p>Customisable theme</p>
@@ -3552,63 +3556,59 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Currently, there is a glitch in the scaling of the calendar Year Page due to bugs in the third party libraries used.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+After each test, you can use the <code>undo</code> command to restore the initial state of the address book for subsequent tests.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="deleting-dated-persons"><a class="link" href="#deleting-dated-persons">G.1. Deleting dated persons</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Initial launch</p>
+<p>Deleting all persons matching the specified tags added before the specified date.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Download the jar file and copy into an empty folder</p>
+<p>Test case: <code>deletebefore d/12/12/2017 t/nonclient</code><br>
+Expected: All persons with the "nonclient" tag added before 12/12/2017 are deleted. Success message is shown in the result
+box, indicating the total number of persons deleted. Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
-</li>
-</ol>
-</div>
+<p>Test case: <code>deletebefore d/<em>today&#8217;s date</em> t/nonclient</code><br>
+Expected: All persons with the "nonclient" tag are deleted. Success message is shown in the result box, indicating the
+total number of persons deleted. Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+<p>Test case: <code>deletebefore d/12/12/2017 t/bestclient</code><br>
+Expected: No person is deleted. "No such persons found" error message is shown in the result box. Status bar remains the same.</p>
 </li>
 <li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a person while all persons are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Test case: <code>deletebefore d/12/34 t/client</code><br>
+Expected: No person is deleted. Date constraints message is shown in the result box. Status bar remains the same.</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Test case: Missing any parameter<br>
+Expected: No person is deleted. Invalid command message is shown in the result box. Status bar remains the same.</p>
 </li>
 </ol>
 </div>
@@ -3617,15 +3617,190 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="adding-an-appointment"><a class="link" href="#adding-an-appointment">G.2. Adding an appointment</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Adding an appointment to the address book.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+All tests should be done using the Command Line Interface(CLI). There should be no modification done to the calendar by clicking on it (GUI).
+</td>
+</tr>
+</table>
+</div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Test case: <code>addappointment n/Joshua d/13/04/2018 st/11:30 et/12:30 l/NUS</code><br>
+Expected: The specified appointment is added to the address book and reflected in the calendar view. Success message is shown in the result box.
+Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>addappointment n/Joshua d/11/04/2018 st/11:15 et/12:15 l/NUS</code><br>
+Expected: No appointment is added. Clashing appointment error message is shown in the result box. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addappointment n/Chris Chrissy d/11/04/2018 st/15:30 et/16:30 l/Paya Lebar MRT</code><br>
+Expected: No appointment is added. Duplicate appointment error message is shown in the result box. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: Missing any parameter<br>
+Expected: No appointment is added. Invalid command message is shown in the result box. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-appointment"><a class="link" href="#deleting-an-appointment">G.3. Deleting an appointment</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an appointment from the address book.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+All tests should be done using the Command Line Interface(CLI). There should be no modification done to the calendar by clicking on it (GUI).
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>deleteappointment n/Chris Chrissy d/11/04/2018 st/15:30 et/16:30 l/Paya Lebar MRT</code><br>
+Expected: The specified appointment is deleted from the address book and reflected in the calendar view. Success message is shown in the result box.
+Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>deleteappointment n/Joshua d/11/05/2018 st/11:15 et/12:15 l/NUS</code><br>
+Expected: No appointment is deleted. "No such appointment found" error message is shown in the result box. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: Missing any parameter<br>
+Expected: No appointment is deleted. Invalid command message is shown in the result box. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="zooming-in-calendar-view"><a class="link" href="#zooming-in-calendar-view">G.4. Zooming in calendar view</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Zooming in the calendar panel to show a more detailed calendar view.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The calendar is currently showing the Month Page</p>
+</li>
+<li>
+<p>Test case: <code>zoomin</code><br>
+Expected: The calendar panel is now showing the Week Page. Success message is shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>zoomin</code><br>
+Expected: The calendar panel is now showing the Day Page. Success message is shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>zoomin</code><br>
+Expected: The calendar does not zoom in anymore. Error message is shown in the result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="zooming-out-calendar-view"><a class="link" href="#zooming-out-calendar-view">G.5. Zooming out calendar view</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Zooming out the calendar panel to show a more general calendar view.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The calendar is currently showing the Week Page</p>
+</li>
+<li>
+<p>Test case: <code>zoomout</code><br>
+Expected: The calendar panel is now showing the Month Page. Success message is shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>zoomout</code><br>
+Expected: The calendar panel is now showing the Year Page. Success message is shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>zoomout</code><br>
+Expected: The calendar does not zoom out anymore. Error message is shown in the result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="going-backward-on-calendar-view"><a class="link" href="#going-backward-on-calendar-view">G.6. Going backward on calendar view</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Making the calendar view go backward in time from the currently displaying date.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>gobackward</code> (Assuming calendar is currently showing the Month Page)<br>
+Expected: The calendar panel is now showing the previous month. Success message is shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>gobackward</code> (Assuming calendar is currently showing the Week Page)<br>
+Expected: The calendar panel is now showing the previous week. Success message is shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>gobackward</code> (Assuming calendar is currently showing the Day Page)<br>
+Expected: The calendar panel is now showing the previous day. Success message is shown in the result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="going-forward-on-calendar-view"><a class="link" href="#going-forward-on-calendar-view">G.7. Going forward on calendar view</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Making the calendar view go forward in time from the currently displaying date.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>goforward</code> (Assuming calendar is currently showing the Month Page)<br>
+Expected: The calendar panel is now showing the next month. Success message is shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>goforward</code> (Assuming calendar is currently showing the Week Page)<br>
+Expected: The calendar panel is now showing the next week. Success message is shown in the result box.</p>
+</li>
+<li>
+<p>Test case: <code>goforward</code> (Assuming calendar is currently showing the Day Page)<br>
+Expected: The calendar panel is now showing the next day. Success message is shown in the result box.</p>
 </li>
 </ol>
 </div>
@@ -3638,7 +3813,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-13 19:42:39 UTC
+Last updated 2018-04-13 21:56:41 UTC
 </div>
 </div>
 </body>
