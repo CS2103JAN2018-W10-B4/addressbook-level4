@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Ng Jun Wei - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Ng Jun Wei - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-addsurance"><a class="link" href="#project-addsurance">PROJECT: AddSurance</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>AddSurance is a comprehensive, reliable and convenient address book for insurance agents built on a simple belief — 
+efficiency and elegance. With its minimalistic design, user interactions are greatly simplified using a CLI
+(Command Line Interface). With this application, you can maintain your huge list of contacts easily, at the same time,
+ managing your schedule efficiently. So, if you are a reasonably tech-savvy insurance agent, this application is absolutely designed for you!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>the ability to email people with email templates</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Emails contacts in AddSurance a specified template.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because a user has to email a lot of people for various reasons. With this feature,
+the user will not need to manually email all his contacts and retype his emails.</p>
+</li>
+<li>
+<p>Highlights: It required an in-depth analysis of the design pattern adopted by AddSurance. The implementation too was challenging
+as it required affecting various models and going up and down different levels of abstraction.</p>
+</li>
+<li>
+<p>Credits: <em>The actual SMTP handling was done through an api from GMail</em></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Modified find command to search across attributes, including tags and address and phone number.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/functional/ng95junwei.md">Functional code</a>]
+[<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/test/ng95junwei.md">Test code</a>]!</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a third party library (Gmail) to the project (<a href="https://github.com">#42</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>{you can add/remove categories in the list above}</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="emailing-a-person-code-email-code-or-code-em-code"><a class="link" href="#emailing-a-person-code-email-code-or-code-em-code">Emailing a person : <code>email</code> or <code>em</code></a></h4>
+<div class="paragraph">
+<p>Emails a person based on the specified name.
+Format: <code>email KEYWORD TEMPLATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Emailed person must have name match the full word of keyword</p>
+</li>
+<li>
+<p>Template chosen must contain the TEMPLATE keyword.</p>
+</li>
+<li>
+<p>Search is case insensitive. e.g. hans will match Hans</p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be emailed. eg. Hans Bo will email Hans Gruber, Bo Yang</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-a-new-template-code-addtemplate-code-or-code-at-code"><a class="link" href="#creating-a-new-template-code-addtemplate-code-or-code-at-code">Creating a new template : <code>addTemplate</code> or <code>at</code></a></h4>
+<div class="paragraph">
+<p>Creates a new template based on the specified purpose, subject and message.
+Format: <code>addTemplate pu/PURPOSE s/SUBJECT m/MESSAGE</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You cannot create two templates with the same purpose
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addTemplate pu/greeting s/Hello There m/Luke I am your father</code></p>
+</li>
+<li>
+<p><code>addTemplate pu/holiday s/Merry Christmas m/Santa Claus is coming to town!</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-template-code-deletetemplate-code-or-code-dt-code"><a class="link" href="#deleting-a-template-code-deletetemplate-code-or-code-dt-code">Deleting a template : <code>deleteTemplate</code> or <code>dt</code></a></h4>
+<div class="paragraph">
+<p>Deletes a template in the address book.<br>
+Format: <code>deleteTemplate PURPOSE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes a template with the specified purpose</p>
+</li>
+<li>
+<p>A template with the specified purpose must exist in Addsurance</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>dt greeting</code><br>
+Deletes the template with the purpose greeting.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="email-feature"><a class="link" href="#email-feature">Email Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The email mechanism is facilitated by the <code>GmailUtil</code> which resides under the <code>util</code> package. The implementation
+uses the Gmail API which exists as an imported library.</p>
+</div>
+<div class="paragraph">
+<p>The utility function is implemented as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> GmailUtil() <span class="directive">throws</span> <span class="exception">IOException</span> {
+        <span class="local-variable">this</span>.service = getGmailService();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Our Util Constructor calls getGmailService which will return a Gmail Object.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> Gmail getGmailService() <span class="directive">throws</span> <span class="exception">IOException</span> {
+        Credential credential = authorize();
+        <span class="keyword">return</span> <span class="keyword">new</span> Gmail.Builder(httpTransport, JSON_FACTORY, credential)
+                .setApplicationName(APPLICATION_NAME)
+                .build();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is what the getGmailService looks like, which on a high level authorizes us through the Gmail API
+using our client secret and builds the Gmail object. During the authorize function, we also define our permissions
+to include sending emails.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">List</span>&lt;<span class="predefined-type">String</span>&gt; SCOPES = <span class="predefined-type">Arrays</span>.asList(GmailScopes.GMAIL_SEND);
+
+    GoogleAuthorizationCodeFlow flow =
+                    <span class="keyword">new</span> GoogleAuthorizationCodeFlow.Builder(
+                            httpTransport, JSON_FACTORY, clientSecrets, SCOPES)
+                            .setDataStoreFactory(dataStoreFactory)
+                            .setAccessType(<span class="string"><span class="delimiter">&quot;</span><span class="content">offline</span><span class="delimiter">&quot;</span></span>)
+                            .build();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now that we have the Gmail object, we define a class method that uses the Gmail object to send out an email</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> send(Gmail service, <span class="predefined-type">String</span> recipientEmail, <span class="predefined-type">String</span> ccEmail, <span class="predefined-type">String</span> fromEmail, <span class="predefined-type">String</span> title,
+                            <span class="predefined-type">String</span> message) <span class="directive">throws</span> <span class="exception">IOException</span>, MessagingException {
+        Message m = createMessageWithEmail(createEmail(recipientEmail, ccEmail, fromEmail, title, message));
+        service.users().messages().send(<span class="string"><span class="delimiter">&quot;</span><span class="content">me</span><span class="delimiter">&quot;</span></span>, m).execute();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Which of course includes troublesome things like creating MimeMessages</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="directive">static</span> MimeMessage createEmail(<span class="predefined-type">String</span> to, <span class="predefined-type">String</span> cc, <span class="predefined-type">String</span> from, <span class="predefined-type">String</span> subject, <span class="predefined-type">String</span> bodyText)
+            <span class="directive">throws</span> MessagingException {
+        <span class="predefined-type">Properties</span> props = <span class="keyword">new</span> <span class="predefined-type">Properties</span>();
+        Session session = Session.getDefaultInstance(props, <span class="predefined-constant">null</span>);
+
+        MimeMessage email = <span class="keyword">new</span> MimeMessage(session);
+        InternetAddress tAddress = <span class="keyword">new</span> InternetAddress(to);
+        InternetAddress cAddress = cc.isEmpty() ? <span class="predefined-constant">null</span> : <span class="keyword">new</span> InternetAddress(cc);
+        InternetAddress fAddress = <span class="keyword">new</span> InternetAddress(from);
+
+        email.setFrom(fAddress);
+        <span class="keyword">if</span> (cAddress != <span class="predefined-constant">null</span>) {
+            email.addRecipient(javax.mail.Message.RecipientType.CC, cAddress);
+        }
+        email.addRecipient(javax.mail.Message.RecipientType.TO, tAddress);
+        email.setSubject(subject);
+        email.setText(bodyText);
+        <span class="keyword">return</span> email;
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And generating a Base64 encoded message to use as a raw input to the Message object before it can be consumed by the
+gmail service.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="directive">static</span> Message createMessageWithEmail(MimeMessage email) <span class="directive">throws</span> MessagingException, <span class="exception">IOException</span> {
+        <span class="predefined-type">ByteArrayOutputStream</span> baos = <span class="keyword">new</span> <span class="predefined-type">ByteArrayOutputStream</span>();
+        email.writeTo(baos);
+        <span class="predefined-type">String</span> encodedEmail = Base64.encodeBase64URLSafeString(baos.toByteArray());
+        Message message = <span class="keyword">new</span> Message();
+        message.setRaw(encodedEmail);
+        <span class="keyword">return</span> message;
+    }
+
+    Message m = createMessageWithEmail(createEmail(recipientEmail, ccEmail, fromEmail, title, message));
+            service.users().messages().send(<span class="string"><span class="delimiter">&quot;</span><span class="content">me</span><span class="delimiter">&quot;</span></span>, m).execute();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="template-feature"><a class="link" href="#template-feature">Template Feature</a></h3>
+<div class="sect3">
+<h4 id="template-model"><a class="link" href="#template-model">Template Model</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The <code>Template</code> model is created to support the Emailing feature of the address book. It stores the templates of emails
+defined by the user.</p>
+</div>
+<div class="paragraph">
+<p>Similar to the <code>Person</code> model, the <code>Template</code> model consists of an <code>Template</code> class which includes three String attributes. The attributes include:</p>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>Purpose</code> &#8658; the purpose of this email template</p>
+</li>
+<li>
+<p><code>Subject</code> &#8658; the subject of this email template</p>
+</li>
+<li>
+<p><code>Message</code> &#8658; the message of this email template</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>Templates</code> are stored in a <code>UniqueTemplateList</code> in the <code>AddressBook</code>. The existing <code>Model</code> interface is extended
+with functionality to manage the filtered list of <code>Template</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-model-manager-for-appointment"><a class="link" href="#aspect-model-manager-for-appointment">Aspect: Model Manager for Appointment</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Implementing the attributes of <code>Template</code> using Strings</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to create three new models just to hold a String, minimized code</p>
+</li>
+<li>
+<p>Cons: The attributes are not extensible, eg. you cannot make <code>Subject</code> dynamic for an email template</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create models for every attribute in Template</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Potential Extension to the models, eg. <code>Message</code> can be dynamically change to email address</p>
+</li>
+<li>
+<p>Cons: Not much usage for now. Extra layer of complexity for no visible enhancement to user.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-template-function"><a class="link" href="#add-template-function">Add Template Function</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The add Template function is implemented as the <code>AddTemplateCommand</code> together
+with its associated <code>AddTemplateCommandParser</code> class. This function supports the adding of an <code>Template</code> to the address book.
+The implementation of the <code>AddTemplateCommand</code> is similar to that of the <code>AddCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>To enhance the logic of this function, checks are implemented to ensure that no two templates can have the same <code>Purpose</code></p>
+</div>
+<div class="paragraph">
+<p>Following is a sequence diagram describing how the add Template function works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddTemplateSequenceDiagram.png" alt="AddTemplateSequenceDiagram" width="900">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-template-function"><a class="link" href="#delete-template-function">Delete Template Function</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The delete Template function is implemented as the <code>DeleteTemplateCommand</code> together
+with its associated <code>DeleteTemplateCommandParser</code> class. This function supports the deletion of an <code>Template</code> from the address book. The
+implementation of the <code>DeleteTemplateCommand</code> is similar to that of the <code>DeleteCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>Following is a sequence diagram describing how the delete appointment function works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteTemplateSequenceDiagram.png" alt="DeleteTemplateSequenceDiagram" width="900">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-13 19:42:39 UTC
+</div>
+</div>
+</body>
+</html>

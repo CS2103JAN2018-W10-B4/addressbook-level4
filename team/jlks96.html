@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Joshua Lee Kai Sheng - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Joshua Lee Kai Sheng - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-addsurance"><a class="link" href="#project-addsurance">PROJECT: AddSurance</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>AddSurance</strong> is a desktop address book application. It targets technologically savvy insurance agents who wish to maintain
+a huge list of contacts, at the same time, manage appointments with (potential) clients. Interaction with this application
+is largely based on the Command Line Interface, aided by a simple GUI. This application is written in Java and has about 20 kLoC. Some of the tools and technologies used for this project include
+<em>Intellij, Github, SourceTree, SceneBuilder, JAVAFX, CalendarFX 8 by Dirk Lemmermann and Gmail API.</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="major-enhancement"><a class="link" href="#major-enhancement">Major enhancement</a></h3>
+<div class="paragraph">
+<p>Implemented a package of scheduling functions to manage the user&#8217;s appointments. This includes adding a <code>Calendar</code>,
+creating an <code>Appointment</code> model, as well as implementing the <code>addappointment</code>, <code>deleteappointment</code>, <code>zoomin</code>, <code>zoomout</code>, <code>gobackward</code>,
+<code>goforward</code> commands.</p>
+</div>
+<div class="sect3">
+<h4 id="what-it-does"><a class="link" href="#what-it-does">What it does</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the user to manage upcoming appointments with (potential) clients and keep track of past appointments.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Insurance agents tend to have many appointment arrangements with their huge list of (potential) clients. This necessitates an appointment
+management function for the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="highlights"><a class="link" href="#highlights">Highlights</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>This enhancement requires good adherence to the existing architecture as it touches <strong>all components</strong>
+of the architecture. A new <code>Appointment</code> model was created to support persistent storage of appointments in the address book.
+Besides, numerous commands were implemented for this enhancement. The most challenging part of all was the integration of third party
+calendar libraries, provided by <strong><a href="https://github.com/dlemmermann/CalendarFX">CalendarFX 8</a></strong>, into the application.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor enhancement</a></h3>
+<div class="paragraph">
+<p>Implemented a delete dated persons function which allows the user to delete persons added before a
+date who match all the tags specified by the user.</p>
+</div>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Insurance agents tend to have many obsolete contacts especially those of non-clients. With this function, insurance agents
+can delete a group of people, as indicated by some tags, that was added before a date to clear up some space in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="highlights-2"><a class="link" href="#highlights-2">Highlights</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>This enhancement requires in-depth, cross-component implementation despite being a minor enhancement. The Single Responsibility
+Principle was closely adhered to to ensure that the implementations do not violate the existing architecture.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="code-contributed-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-functional-jlks96-md-functional-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-functional-jlks96-reused-md-adapted-functional-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-test-jlks96-md-test-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-test-jlks96-reused-md-adapted-test-code-a"><a class="link" href="#code-contributed-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-functional-jlks96-md-functional-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-functional-jlks96-reused-md-adapted-functional-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-test-jlks96-md-test-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-test-jlks96-reused-md-adapted-test-code-a">Code contributed: [<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/functional/jlks96.md">Functional Code</a>][<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/functional/jlks96-reused.md">Adapted Functional Code</a>][<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/test/jlks96.md">Test Code</a>][<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/test/jlks96-reused.md">Adapted Test Code</a>]</a></h5>
+
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Project management</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Team Lead</p>
+</li>
+<li>
+<p>Set up the team repository and important tools for the project, such as Travis and Coveralls, on GitHub</p>
+</li>
+<li>
+<p>Maintained the team repository:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed the team workflow and continual integration of the project (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/94">#94</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/56">#56</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/44">#44</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/176">#176</a>)</p>
+</li>
+<li>
+<p>Managed issue tracking, labelling and milestones</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Managed releases <code>v1.3</code> - <code>v1.5</code> on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Documentation</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed the Developer Guide:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the Product Scope, User Stories, Use Cases, Non Functional Requirements and Glossary sections (PR:
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/31">#31</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/154">#154</a>)</p>
+</li>
+<li>
+<p>Updated diagrams to match the current implementation (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/154">#154</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/178">#178</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Managed the User Guide:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the Introduction section to match the current user profile (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/38">#38</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/162">#162</a>)</p>
+</li>
+<li>
+<p>Rearranged the features into three logical sections for better clarity (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/162">#162</a>)</p>
+</li>
+<li>
+<p>Tidied up the Command Summary section (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/162">#162</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/178">#178</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Updated README to match the current value proposition (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/38">#38</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/92">#92</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Repackaging of the product</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Renamed the address book (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/123">#123</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/154">#154</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/38">#38</a>)</p>
+</li>
+<li>
+<p>Changed the logo and theme of the address book (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/123">#123</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/161">#161</a>)</p>
+</li>
+<li>
+<p>Enhanced the UI of the address book (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/161">#161</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/180">#180</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Enhancement to existing features</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created command aliases for all existing commands together with the associated tests (PR: <a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/34">#34</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Community</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed PRs for teammates with non-trivial review comments (PR:
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/77">#77</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/81">#81</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/118">#118</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/163">#163</a>,
+<a href="https://github.com/CS2103JAN2018-W10-B4/main/pull/170">#170</a>)</p>
+</li>
+<li>
+<p>Reported bugs and given suggestions for other teams during mock User Acceptance Testing (PR:
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/163">#163</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/193">#193</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/194">#194</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/190">#190</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/186">#186</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/178">#178</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/175">#175</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/173">#173</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/168">#168</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/164">#164</a>,
+<a href="https://github.com/CS2103JAN2018-F11-B1/main/issues/188">#188</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are some sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ui-layout-and-explanations"><a class="link" href="#ui-layout-and-explanations">UI Layout and Explanations</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="../images/UIExplanations.png" alt="UIExplanations" width="900">
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-dated-persons-code-deletebefore-code-or-code-db-code"><a class="link" href="#deleting-dated-persons-code-deletebefore-code-or-code-db-code">Deleting dated persons  : <code>deletebefore</code> or <code>db</code></a></h4>
+<div class="paragraph">
+<p>Deletes all persons added before a specified date matching all specified tags.<br>
+Format: <code>deletebefore d/DATE t/TAG&#8230;&#8203;</code> or <code>db d/DATE t/TAG&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Persons deleted must have all the specified <code>TAG</code> s.</p>
+</li>
+<li>
+<p>The specified <code>TAG</code> s can be in any order.</p>
+</li>
+<li>
+<p><strong>At least one</strong> <code>TAG</code> must be provided.</p>
+</li>
+<li>
+<p>The input <code>DATE</code> <strong>must be in the following format: dd/MM/yyyy</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You are encouraged to <strong>attach tags to persons</strong> representing different groups.
+This way, you can delete persons of a particular group who were added before a date.
+<em>For example, to delete contacts relating to non-clients in batch, you can attach a <strong>"nonclient"</strong> tag to these persons and
+use the <code>deletebefore</code> command.</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletebefore d/12/12/2017 t/nonclients</code><br>
+Deletes all non-clients added before 12/12/2017 in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scheduling-features"><a class="link" href="#scheduling-features">Scheduling Features</a></h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The calendar view is optimized for fullscreen mode.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Currently, there is a glitch in the scaling of the calendar Year Page. We are working with the
+third party provider to resolve this issue.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="adding-an-appointment-code-addappointment-code-or-code-aa-code"><a class="link" href="#adding-an-appointment-code-addappointment-code-or-code-aa-code">Adding an appointment : <code>addappointment</code> or <code>aa</code></a></h4>
+<div class="paragraph">
+<p>Adds an appointment to the address book that will be shown in the calendar panel.<br>
+Format: <code>addappointment n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code> or <code>aa n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds an appointment with the person named <code>NAME</code>, with the specified <code>DATE</code>, <code>STARTTIME</code>, <code>ENDTIME</code> and <code>LOCATION</code> respectively</p>
+</li>
+<li>
+<p>The input <strong><code>STARTTIME</code> must precede <code>ENDTIME</code></strong></p>
+</li>
+<li>
+<p>The input <code>DATE</code> <strong>must be in the following format: dd/MM/yyyy</strong>.</p>
+</li>
+<li>
+<p>The input <code>STARTTIME</code> and <code>ENDTIME</code> <strong>must be in the following format: HH:mm (24hr format)</strong>.</p>
+</li>
+<li>
+<p>The calendar panel will be updated accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The appointment added <strong>need not be related to any person existing in the address book</strong>. This gives you the flexibility
+to keep track of appointments with anyone, without having to add that person into the address book.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+You are <strong>not allowed to add appointments that clash in time.</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/aaScreenshot.png" alt="aaScreenshot" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>aa n/Betsy d/12/12/2017 st/12:30 et/13:30 l/Gold Park Estate</code><br>
+Creates an appointment with Betsy on 12/12/2017 from 12:30pm to 1:30pm at Gold Park Estate.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-an-appointment-code-deleteappointment-code-or-code-da-code"><a class="link" href="#deleting-an-appointment-code-deleteappointment-code-or-code-da-code">Deleting an appointment : <code>deleteappointment</code> or <code>da</code></a></h4>
+<div class="paragraph">
+<p>Deletes an appointment in the address book.<br>
+Format: <code>deleteappointment n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code> or <code>da n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes an appointment that matches all the input <code>NAME</code>, <code>DATE</code>, <code>STARTTIME</code>, <code>ENDTIME</code> and <code>LOCATION</code>.</p>
+</li>
+<li>
+<p>The input <code>DATE</code> <strong>must be in the following format: dd/MM/yyyy</strong>.</p>
+</li>
+<li>
+<p>The input <code>STARTTIME</code> and <code>ENDTIME</code> <strong>must be in the following format: HH:mm (24hr format)</strong>.</p>
+</li>
+<li>
+<p>The calendar panel will be updated accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the current version, the deleteappointment command requires you to input all fields of the appointment to be deleted.
+This command will be upgraded to the <a href="#da_enhanced">enhanced deleteappointment command</a> which will be available in v2.0.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/daScreenshot.png" alt="daScreenshot" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>da n/Betsy d/12/12/2017 st/12:30 et/13:30 l/Gold Park Estate</code><br>
+Deletes the appointment previously arranged with Betsy on 12/12/2017 from 12:30pm to 1:30pm at Gold Park Estate.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-an-appointment-code-findappointment-code-or-code-fa-code-code-coming-in-v2-0-code"><a class="link" href="#finding-an-appointment-code-findappointment-code-or-code-fa-code-code-coming-in-v2-0-code">Finding an appointment : <code>findappointment</code> or <code>fa</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Finds appointments with details containing any of the given keywords or part thereof.<br>
+Format: <code>findappointment KEYWORD&#8230;&#8203;</code> or <code>fa KEYWORD&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Keywords are words that are part of any fields of an appointment, i.e. <code>NAME</code>, <code>DATE</code>, <code>STARTTIME</code>, <code>ENDTIME</code> and <code>LOCATION</code></p>
+</li>
+<li>
+<p>The search is case insensitive. e.g. <code>gold park</code> will match <code>Gold Park</code></p>
+</li>
+<li>
+<p>All the details of an appointment will be searched.</p>
+</li>
+<li>
+<p>Partial words will be matched e.g. <code>gol</code> will match <code>gold park</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findappointment 12/12/2018</code><br>
+Returns any appointment that is scheduled on 12/12/2018</p>
+</li>
+<li>
+<p><code>findappointment Betsy Tim John</code><br>
+Returns any appointment with <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-an-appointment-code-editappointment-code-or-code-ea-code-code-coming-in-v2-0-code"><a class="link" href="#editing-an-appointment-code-editappointment-code-or-code-ea-code-code-coming-in-v2-0-code">Editing an appointment : <code>editappointment</code> or <code>ea</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Edits an appointment in the address book.<br>
+Format: <code>editappointment INDEX [n/NAME] [d/DATE] [st/STARTTIME] [et/ENDTIME] [l/LOCATION]</code>
+or <code>ea INDEX [n/NAME] [d/DATE] [st/STARTTIME] [et/ENDTIME] [l/LOCATION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits an appointment at the specified <code>INDEX</code>.
+The index refers to the index number shown in the last appointment listing. The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>The input <code>DATE</code> <strong>must be in the following format: dd/MM/yyyy</strong>.</p>
+</li>
+<li>
+<p>The input <code>STARTTIME</code> and <code>ENDTIME</code> <strong>must be in the following format: HH:mm (24hr format)</strong>.</p>
+</li>
+<li>
+<p>The calendar panel will be updated accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findappointment Betsy</code><br>
+<code>editappointment 1 d/25/12/2017 l/Parkway Parade</code><br>
+Edits the date and location of the first appointment with Betsy in the listing to 25/12/2017 and Parkway Parade respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="da_enhanced"><a class="link" href="#da_enhanced">Deleting an appointment (enhanced) : <code>deleteappointment</code> or <code>da</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified appointment in the address book.<br>
+Format: <code>deleteappointment INDEX</code> or <code>da INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the appointment at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The calendar panel will be updated accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findappointment 12/12/2018</code><br>
+<code>deleteappointment 1</code><br>
+Deletes the 1st appointment in the results of the <code>findappointment</code> command</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="configuring-calendar-theme-code-configcalendar-code-or-code-cc-code-code-coming-in-v2-0-code"><a class="link" href="#configuring-calendar-theme-code-configcalendar-code-or-code-cc-code-code-coming-in-v2-0-code">Configuring calendar theme : <code>configcalendar</code> or <code>cc</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Configures the calendar view.<br>
+Format: <code>configcalendar s/STYLE</code> or <code>cc s/STYLE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Set the calendar theme to the specified predefined <code>STYLE</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cc s/STYLE_2</code><br>
+Set the calendar theme to the predefined <code>STYLE_2</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="delete-dated-persons-function"><a class="link" href="#delete-dated-persons-function">Delete Dated Persons Function</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The delete dated persons mechanism supports deleting all persons added before a date who possess all the tags specified by the user.
+This function is facilitated by adding a <code>DateAdded</code> attribute whenever a <code>Person</code> is added to the address book. This
+date stamp is added automatically by the application whenever the user adds a new person. Furthermore, to check if a <code>Person</code> is to be deleted,
+additional predicate classes are implemented.</p>
+</div>
+<div class="paragraph">
+<p>The command for this function, <code>DeleteBeforeCommand</code> inherits from the <code>UndoableCommand</code>. This allows user to undo the delete should he/she does it by mistake.
+The <code>DeleteBeforeCommand</code> takes in <code>d/DATE</code> and <code>[t/TAG&#8230;&#8203;]</code> as parameters. The <code>TAG</code> s parameter allows the user to delete only persons with the
+specified tags and not everyone added before a certain date. This enhances the flexibility of this delete function.</p>
+</div>
+<div class="paragraph">
+<p>The implementation of this function adheres closely to the Object Oriented Principle as well as the Single Responsibility Principle.</p>
+</div>
+<div class="paragraph">
+<p>Following is a sequence diagram describing how the delete dated persons function works:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/DeleteBeforeSequenceDiagram.png" alt="DeleteBeforeSequenceDiagram" width="900">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-deletebeforecommand-code"><a class="link" href="#aspect-implementation-of-code-deletebeforecommand-code">Aspect: Implementation of <code>DeleteBeforeCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Follows the general design of the <code>delete</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Consistencies in the implementation of commands and command parsers</p>
+</li>
+<li>
+<p>Cons: Requires additional methods for removing persons in the <code>AddressBook</code> and <code>UniquePersonList</code> classes</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Extends the <code>delete</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not require "exploratory" modifications in the <code>Model</code> component</p>
+</li>
+<li>
+<p>Cons: Needs to call the <code>delete</code> command multiple times to delete all targeted persons</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-dateadded-code"><a class="link" href="#aspect-implementation-of-code-dateadded-code">Aspect: Implementation of <code>DateAdded</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Add <code>DateAdded</code> as an attribute of a <code>Person</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Consistencies in implementation of the <code>Person</code> model that is in line with the OOP and Single Responsibility Principle</p>
+</li>
+<li>
+<p>Cons: Requires additional tests and overheads in maintaining an extra attribute</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Include the <code>DateAdded</code> directly inside the <code>Person</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less overhead needed to maintain the <code>DateAdded</code> attribute</p>
+</li>
+<li>
+<p>Cons: Reduces consistencies in the existing architecture and reduces coherence of the <code>Person</code> class</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-who-adds-the-code-dateadded-code-attribute"><a class="link" href="#aspect-who-adds-the-code-dateadded-code-attribute">Aspect: Who adds the <code>DateAdded</code> attribute?</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> The application automatically creates a <code>DateAdded</code> attribute for every <code>Person</code> added</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Avoids unnecessary errors in user-input date</p>
+</li>
+<li>
+<p>Cons: Additional stubs are needed to carry out tests in order to manually fix and manipulate <code>DateAdded</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Let the user input the current date</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The user might input the wrong date or date with invalid format</p>
+</li>
+<li>
+<p>Cons: Ease of implementation</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scheduling-and-calendar-module"><a class="link" href="#scheduling-and-calendar-module">Scheduling and Calendar Module</a></h3>
+<div class="paragraph">
+<p>This entire section is dedicated to explaining the whole appointment scheduling and calendar module in view of its scale and significance.</p>
+</div>
+<div class="paragraph">
+<p>In general, the implementation of this module follows closely the current architecture of the system as shown in <a href="#Design-Architecture">Section 2.1</a>.
+This is to ensure consistency in the design of the system to keep it simple as <em>simplicity is consistency</em>.</p>
+</div>
+<div class="paragraph">
+<p>A number of Software Engineering Principles are used in the implementation of this module, namely <strong>OOP</strong>, <strong>SOLID</strong>, <strong>YAGNI</strong>, <strong>DRY</strong> principles.
+Besides, the commands related to this module are also implemented using the <strong>Command Design Pattern</strong>.</p>
+</div>
+<div class="sect3">
+<h4 id="appointment-model"><a class="link" href="#appointment-model">Appointment Model</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The <code>Appointment</code> model is created to support the scheduling feature of the address book. It stores the information of appointments
+arranged by the user. The class diagram for the <code>Appointment</code> model is as follows:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/AppointmentClassDiagram.png" alt="AppointmentClassDiagram" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Similar to the <code>Person</code> model, the <code>Appointment</code> model consists of an <code>Appointment</code> class which has its attributes implemented as separate classes to
+observe the <strong>Single Responsibility Principle</strong>. The attributes include:</p>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>PersonName</code> &#8658; the name of the person the user is having appointment with</p>
+</li>
+<li>
+<p><code>Date</code> &#8658; the date of the appointment</p>
+</li>
+<li>
+<p><code>StartTime</code> &#8658; the start time of the appointment</p>
+</li>
+<li>
+<p><code>EndTime</code> &#8658; the end time of the appointment</p>
+</li>
+<li>
+<p><code>Location</code> &#8658; the arranged location of the appointment</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>Appointment</code> s are stored in a <code>UniqueAppointmentList</code> in the <code>AddressBook</code>. The existing <code>Model</code> interface is extended
+with functionalities to manage the filtered list of <code>Appointment</code> s. This extension is kept as minimised as possible in light of
+the <strong>YAGNI</strong> Principle.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-model-manager-for-appointment"><a class="link" href="#aspect-model-manager-for-appointment">Aspect: Model Manager for Appointment</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> The existing <code>ModelManager</code> is extended to handle the filtered list of <code>Appointment</code> s</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This design adheres to the <strong>DRY</strong> Principle as there will not be a duplicated <code>ModelManager</code> for the <code>Appointment</code> model
+with repeated functionalities as the existing one</p>
+</li>
+<li>
+<p>Cons: Additional methods added to the <code>Model</code> interface might increase coupling for existing classes that are dependent on
+the <code>ModelManager</code>. For example, modifications made for <code>Appointment</code> in the <code>ModelManager</code> might now affect other commands unrelated
+to <code>Appointment</code> which call the <code>ModelManager</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create another <code>Model</code> interface implemented by another <code>ModelManager</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Ease of implementation and minimal impact on classes coupled with the existing <code>ModelManager</code></p>
+</li>
+<li>
+<p>Cons: Violates the <strong>DRY</strong> Principle and causes redundant codes</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="aspect-creation-of-starttime-and-endtime-attributes"><a class="link" href="#aspect-creation-of-starttime-and-endtime-attributes">Aspect: Creation of StartTime and EndTime attributes</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> <code>StartTime</code> and <code>EndTime</code> are created as separate classes which extends the <code>Time</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This implementation adheres to the Polymorphism and Inheritance concepts in OOP. Both <code>StartTime</code> and <code>EndTime</code> has a
+<em>is a</em> relationship with <code>Time</code>. The separation of <code>StartTime</code> and <code>EndTime</code> into two classes also support possible future extensions to
+these attribute classes. For example, it is now possible to set different limits to <code>StartTime</code> and <code>EndTime</code> with this implementation.</p>
+</li>
+<li>
+<p>Cons: The <code>StartTime</code> and <code>EndTime</code> have to adhere to the <strong>Liskov Substitution Principle</strong> which means that they cannot be
+more restrictive than the parent <code>Time</code> class.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create <code>StartTime</code> and <code>EndTime</code> as separate unrelated classes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Avoids coupling between <code>StartTime</code> and <code>EndTime</code> due to an additional <code>Time</code> superclass</p>
+</li>
+<li>
+<p>Cons: Violates the <strong>DRY</strong> Principle as <code>StartTime</code> and <code>EndTime</code> share some functionalities, such as the checking of the validity
+of an input date</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="calendar-ui"><a class="link" href="#calendar-ui">Calendar UI</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The calendar is implemented using third party libraries provided by <a href="https://github.com/dlemmermann/CalendarFX">CalendarFX</a>.
+The calendar panel view is shown below:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/CalendarView.png" alt="CalendarView" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>The setting up of the <code>CalendarView</code> is done by first creating a <code>Calendar</code> named <em>Appointments</em> which is added to a <code>CalendarSource</code>.
+The <code>CalendarSource</code> is then added to the <code>CalendarView</code>. The implementation details are as shown in the following code snippet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">CalendarView calendarView;
+<span class="predefined-type">Calendar</span> calendar;
+
+calendar = <span class="keyword">new</span> <span class="predefined-type">Calendar</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">Appointments</span><span class="delimiter">&quot;</span></span>);
+CalendarSource calendarSource = <span class="keyword">new</span> CalendarSource(<span class="string"><span class="delimiter">&quot;</span><span class="content">My Calendar</span><span class="delimiter">&quot;</span></span>);
+calendarSource.getCalendars().addAll(calendar);
+
+calendarView.getCalendarSources().addAll(calendarSource);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>Appointment</code> s stored in the address book is loaded as <code>Entries</code> into the <code>Calendar</code> upon start up. The list of <code>Appointment</code> s
+is passed into the <code>CalendarPanel</code> class. For each of these <code>Appointment</code> s, its attributes are used to create an <code>Entry</code>, which is then
+added to the <code>Calendar</code>.</p>
+</div>
+<div class="paragraph">
+<p>When there are changes to the filtered list of <code>Appointment</code> s due to addition or deletion of appointments, the <code>Calendar</code> is updated
+using <strong>Event Handlers</strong>. The event handling for the addition of a new <code>Appointment</code> is shown below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Subscribe</span>
+<span class="directive">private</span> <span class="type">void</span> handleNewAppointmentAddedEvent(NewAppointmentAddedEvent event) {
+    logger.info(LogsCenter.getEventHandlingLogMessage(event));
+    loadEntry(event.getAppointmentAdded());
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-updating-of-calendar-due-to-addition-or-deletion-of-appointments"><a class="link" href="#aspect-updating-of-calendar-due-to-addition-or-deletion-of-appointments">Aspect: Updating of Calendar due to addition or deletion of appointments</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use of event handling to update the <code>Calendar</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Event handling is suitable for UI purposes due to its flexibility</p>
+</li>
+<li>
+<p>Cons: The flow of program is less logical and obvious</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> The <code>DeleteAppointmentCommand</code> and <code>AddAppointmentCommand</code> call the <code>UIManager</code> to invoke the update to the calendar</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Associations between the <code>Logic</code> and <code>UI</code> components are clearer</p>
+</li>
+<li>
+<p>Cons: This will introduce a two way dependency between the <code>Logic</code> and <code>UI</code> components which may lead to confusion and
+make the <code>Logic</code> component coupled to the <code>UI</code> component</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="aspect-creation-of-calendar"><a class="link" href="#aspect-creation-of-calendar">Aspect: Creation of Calendar</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use third party libraries</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Readily available hence time saving</p>
+</li>
+<li>
+<p>Cons: There might be possible bugs in the libraries provided by third parties</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There is an existing bug in the <code>YearPage</code> for the <code>Calendar</code>, which causes the <code>YearPage</code> to fail to scale its size according
+to the size of the <code>Pane</code> container
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2:</strong> Create our own <code>CalendarView</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More flexibility with the design of the <code>CalendarView</code></p>
+</li>
+<li>
+<p>Cons: Time consuming and manpower intensive</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-appointment-function"><a class="link" href="#add-appointment-function">Add Appointment Function</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The add <code>Appointment</code> function is implemented as the <code>AddAppointmentCommand</code> together
+with its associated <code>AddAppointmentCommandParser</code> class. This function supports the adding of an <code>Appointment</code> to the address book.
+The <code>AddAppointmentCommand</code> inherits from the <code>UndoableCommand</code> to allow user to undo the addition of an <code>Appointment</code>. The
+implementation of the <code>AddAppointmentCommand</code> is similar to that of the <code>AddCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>To enhance the logic of this function, checks are implemented to ensure that the <code>StartTime</code> of an appointment precedes the <code>EndTime</code>.
+Besides, the function also disallows the creation of clashing appointments in time.</p>
+</div>
+<div class="paragraph">
+<p>Following is an activity diagram describing the flow of the add <code>Appointment</code> function:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/aaActivityDiagram.jpg" alt="aaActivityDiagram" width="900">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-what-code-event-code-to-raise-when-adding-a-new-code-appointment-code"><a class="link" href="#aspect-what-code-event-code-to-raise-when-adding-a-new-code-appointment-code">Aspect: What <code>Event</code> to raise when adding a new <code>Appointment</code>?</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Raise a specially created <code>NewAppointmentAddedEvent</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Do not have to respond to unrelated or unnecessary events</p>
+</li>
+<li>
+<p>Cons: Overhead in maintaining the new <code>Event</code> class</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Raise the existing <code>AddressBookChangedEvent</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Do not have to implement a new <code>Event</code> class</p>
+</li>
+<li>
+<p>Cons: The <code>Calendar</code> will refresh whenever <code>AddressBookChangedEvent</code> is raised, including when only the <code>Person</code> list is changed</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-appointment-function"><a class="link" href="#delete-appointment-function">Delete Appointment Function</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The delete <code>Appointment</code> function is implemented as the <code>DeleteAppointmentCommand</code> together
+with its associated <code>DeleteAppointmentCommandParser</code> class. This function supports the deletion of an <code>Appointment</code> from the address book.
+The <code>DeleteAppointmentCommand</code> inherits from the <code>UndoableCommand</code> to allow user to undo the deletion of an <code>Appointment</code>. The
+implementation of the <code>DeleteAppointmentCommand</code> is similar to that of the <code>DeleteCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>Following is a sequence diagram describing how the delete <code>Appointment</code> function works:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/DeleteAppointmentSequenceDiagram.png" alt="DeleteAppointmentSequenceDiagram" width="900">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-what-fields-to-input-when-deleting-an-code-appointment-code"><a class="link" href="#aspect-what-fields-to-input-when-deleting-an-code-appointment-code">Aspect: What fields to input when deleting an <code>Appointment</code>?</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use all attributes of an <code>Appointment</code> as input fields to delete a matching <code>Appointment</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Certainty in deleting an <code>Appointment</code></p>
+</li>
+<li>
+<p>Cons: User has to input all fields which may be cumbersome</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Only input the <code>PersonName</code> and <code>Date</code> of the <code>Appointment</code> to be deleted</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User does not have to input all the attributes of an <code>Appointment</code></p>
+</li>
+<li>
+<p>Cons: There may be more than one <code>Appointments</code> with the same <code>PersonName</code> and <code>Date</code>, which may cause unexpected behaviour by
+the <code>DeleteAppointmentCommand</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="calendar-zooming-function"><a class="link" href="#calendar-zooming-function">Calendar Zooming Function</a></h4>
+<div class="sect4">
+<h5 id="current-implementation-6"><a class="link" href="#current-implementation-6">Current Implementation</a></h5>
+<div class="paragraph">
+<p>The calendar zooming function is implemented by the <code>ZoomInCommand</code> and <code>ZoomOutCommand</code>. These <code>Command</code> classes are responsible
+for raising the <code>ZoomInEvent</code> and <code>ZoomOutEvent</code>. In turn, <code>ZoomInEvent</code> and <code>ZoomOutEvent</code> are created to support this function.</p>
+</div>
+<div class="paragraph">
+<p>If a user tries to zoom in or out when the zoom level is at its maximum, an error message will be shown. To facilitate this,
+the <code>CalendarPanel</code> contains logic that will raise the <code>MaxZoomInEvent</code> or <code>MaxZoomOutEvent</code> for such situations. <code>ZoomInCommand</code>
+and <code>ZoomOutCommand</code> will then handle these events raised by throwing a <code>CommandException</code> containing the error message.</p>
+</div>
+<div class="paragraph">
+<p>The actual implementation of the <code>ZoomInCommand</code> is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ZoomInCommand</span> <span class="directive">extends</span> Command {
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_WORD = <span class="string"><span class="delimiter">&quot;</span><span class="content">zoomin</span><span class="delimiter">&quot;</span></span>;
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_ALIAS = <span class="string"><span class="delimiter">&quot;</span><span class="content">zi</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_SUCCESS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Calendar zoomed in</span><span class="delimiter">&quot;</span></span>;
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_MAX_ZOOM_IN = <span class="string"><span class="delimiter">&quot;</span><span class="content">The calendar is already zoomed in to the maximum level</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">Logger</span> logger = LogsCenter.getLogger(<span class="local-variable">this</span>.getClass());
+    <span class="directive">private</span> <span class="type">boolean</span> receivedFeedback = <span class="predefined-constant">false</span>;
+    <span class="directive">private</span> <span class="type">boolean</span> isSuccessful = <span class="predefined-constant">false</span>;
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() <span class="directive">throws</span> CommandException {
+        registerAsAnEventHandler(<span class="local-variable">this</span>);
+        raise(<span class="keyword">new</span> ZoomInEvent());
+        <span class="keyword">while</span> (!receivedFeedback);
+
+        <span class="keyword">if</span> (isSuccessful) {
+            <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS);
+        } <span class="keyword">else</span> {
+            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_MAX_ZOOM_IN);
+        }
+    }
+
+    <span class="annotation">@Subscribe</span>
+    <span class="directive">private</span> <span class="type">void</span> handleMaxZoomInEvent(MaxZoomInEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        receivedFeedback = <span class="predefined-constant">true</span>;
+        isSuccessful = <span class="predefined-constant">false</span>;
+    }
+
+    <span class="annotation">@Subscribe</span>
+    <span class="directive">private</span> <span class="type">void</span> handleZoomSuccessEvent(ZoomSuccessEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        receivedFeedback = <span class="predefined-constant">true</span>;
+        isSuccessful = <span class="predefined-constant">true</span>;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The implementation for <code>ZoomOutCommand</code> is highly similar to that of the <code>ZoomInCommand</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-6"><a class="link" href="#design-considerations-6">Design Considerations</a></h5>
+<div class="sect5">
+<h6 id="aspect-where-should-the-event-raising-be-implemented-for-the-code-zoomincommand-code-and-code-zoomoutcommand-code"><a class="link" href="#aspect-where-should-the-event-raising-be-implemented-for-the-code-zoomincommand-code-and-code-zoomoutcommand-code">Aspect: Where should the event raising be implemented for the <code>ZoomInCommand</code> and <code>ZoomOutCommand</code>?</a></h6>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Implement event raising in the <code>Command</code> superclass</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Adheres to the <strong>DRY</strong> principle as <code>ZoomInCommand</code> and <code>ZoomOutCommand</code> do not have to implement a duplicated event
+raising functionality</p>
+</li>
+<li>
+<p>Cons: All other command subclasses inherits the unnecessary event raising function</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Implement event raising in a specially created subclass of <code>Command</code>, which is in turn inherited by the <code>ZoomInCommand</code> and <code>ZoomOutCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Commands that do not need to raise event do not inherit the event raising function</p>
+</li>
+<li>
+<p>Cons: Might over-complicate things for these simple commands.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-13 19:42:39 UTC
+</div>
+</div>
+</body>
+</html>

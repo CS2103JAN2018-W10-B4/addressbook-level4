@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Lucas Gaylord - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Lucas Gaylord - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-addsurance"><a class="link" href="#project-addsurance">PROJECT: AddSurance</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Addsurance is <em>the</em> insurance book for teh-savy insurance agents. Built specifically to support the functionality you need to organize and maintain your massive and growing list of contacts and demanding schedule, so that you may scale your business with greater ease. The user design is minimalistic, based in a Command Line Interface, to help you get the job done without distractions.</p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>AddSurance</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Import and Export contacts to/from a <code>.csv</code> file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating and implementing <code>ImportContactsCommand</code> class</p>
+</li>
+<li>
+<p>Creating and implementing <code>ExportContactsCommand</code> class</p>
+</li>
+<li>
+<p>Integration with <code>AddressBookParser</code> in both cases</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>What it does</strong>:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This functionality allows the user to take a .csv file with a list of contact information and easily import that information into the AddressBook with 1 command. Additionally, the user may want to print the contacts or store them in another AddressBook and can similarly export the contacts to a specified <code>.csv</code>. If no file exists at the path specified by the user, one will automatically be created.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justification</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Users need portability. Without this functionality, a user would manually have to copy every entry from another contact list into our AddressBook. For an insurance agent with a large number of contacts this is just not feasible. Similarly, users may need their contacts outside the context of this AddressBook, which is provided by the export functionality.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Highlights</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Creating new commands requires integration <code>AddressBookParser</code> and the model. Additionally, it uses the Apache Commons CSV dependency.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Credits: <a href="https://www.callicoder.com/java-read-write-csv-file-apache-commons-csv/">Apache Commons CSV</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Minor enhancement</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sorting alphabetically by name</p>
+</li>
+<li>
+<p><strong>Justification</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sorting makes it easier for an isurance agent to stay organized. Without this functionality, there would be no other way to organize contacts</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Highlights</strong>:
+Although sorting seems like a simple task, it required full integration with all parts of the system excluding the UI. Functions were added to <code>AddressBook</code>, <code>Model</code>, <code>ModelManager</code>, and finally <code>AddressBookParser</code>. <code>SortCommand</code> and <code>PersonCompare</code> was a newly created and implemented class.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/functional/luca590.md">Functional Code</a>][<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/test/luca590.md">Test code</a>]</p>
+</div>
+<div class="paragraph">
+<p><strong>Other contributions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Project management</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Subitting and resolving issues with PRs</p>
+</li>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://a.com">#1</a>, <a href="https://a.com">#2</a>, <a href="https://a.com">#3</a>, <a href="https://a.com">#4</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions (examples:  <a href="https://a.com">1</a>, <a href="https://a.com">2</a>, <a href="https://a.com">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a third party library, Apache Commons CSV with the codebase.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Below are sections of the User Guide to which I contributed.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="importing-contacts-from-csv-code-import_contacts-code-or-code-ic-code"><a class="link" href="#importing-contacts-from-csv-code-import_contacts-code-or-code-ic-code">Importing contacts from CSV : <code>import_contacts</code> or <code>ic</code></a></h4>
+<div class="paragraph">
+<p>Imports contacts from a csv file that contains the header (Name, Email, Phone, Address)<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>import_contacts PATH.csv</code></p>
+</div>
+<div class="paragraph">
+<p>For example <code>import_contacts ~/PATH/examplefile.csv</code> will import the contacts contained in the .csv file <code>examplefile.csv</code> at <code>PATH</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>The <em>command</em> should meet the following conditions:</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Include the file extension <code>.csv</code> at the end of the file path</p>
+</li>
+<li>
+<p>Use the <strong>full</strong> (not the <em>relative</em>) file path</p>
+</li>
+<li>
+<p><em>No need</em> to include quotations ("&#8230;&#8203;") around the file path</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>The <code>.csv</code> file from which you are importing the contacts should:</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Have 4 headers in the following order: Name, Email, Phone, Address. The header is simply the first row of the .csv</p>
+</li>
+<li>
+<p>Be a <code>.csv</code> file. <code>.txt</code> and other file endings are not supported</p>
+</li>
+<li>
+<p>Each entry should follow the standard conditions for Name, Phone, Email, and Address. For example, phone numbers must be more than 3 numbers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An example of a suitable import file format is shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/import_file_example.png" alt="import file example" width="700">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exporting-contacts-to-csv-code-export_contacts-code-or-code-ec-code"><a class="link" href="#exporting-contacts-to-csv-code-export_contacts-code-or-code-ec-code">Exporting contacts to CSV: <code>export_contacts</code> or <code>ec</code></a></h4>
+<div class="paragraph">
+<p>Export all contacts to a .csv file.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>ec PATH</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is not necessary to include a file path after the command. If no file path is included, <code>ec</code> will create and write to a new .csv file, <em>data/exportToExisting.csv</em>. This is necessary for testing purposes, so we encourage the user to specify a file path.
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Be sure to include .csv at the end of the file name</p>
+</li>
+<li>
+<p>No need to put the file path in quotes ("&#8230;&#8203;"), can simply write it directly</p>
+</li>
+<li>
+<p>Can write absolute or local file path</p>
+</li>
+<li>
+<p>You may also give the path to a file name that doesn&#8217;t yet exist. For example, you may call <code>ec data/newFileExample.csv</code> where <code>data/newFileExample.csv</code> does not yet exist. In this case, a new .csv file will be automatically created and written to.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-contacts-in-address-book-code-sort_by_name-code-or-code-sort-code"><a class="link" href="#sorting-contacts-in-address-book-code-sort_by_name-code-or-code-sort-code">Sorting contacts in address book : <code>sort_by_name</code> or <code>sort</code></a></h4>
+<div class="paragraph">
+<p>Sorts the contacts in the address book in alphabetical order by name. Sorting will not distinguish between first and last names, but will sort by the full text entered for a contacts name.</p>
+</div>
+<div class="paragraph">
+<p>Currently only sorting alphabetically by name is supported.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+No arguments are necessary, can simply enter <code>sort</code> in CLI
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort</code> or <code>sort_by_name</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort</code></p>
+</li>
+<li>
+<p><code>sort_by_name</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Below are sections of the Developer Guide to which I contributed.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="import-contacts-from-csv-file-function"><a class="link" href="#import-contacts-from-csv-file-function">Import Contacts from CSV file Function</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Import Contacts mechanism allows users to import contacts from a .csv file. The file should contain the headers <em>Name</em>, <em>Email</em>, <em>Phone</em>, and <em>Address</em> with a separate contact in each row. This functionality is implemented in with classes <code>ImportContactsCommand</code> and <code>ImportContactsCommandParser</code>. Functionality is tested in <code>ImportContactsCommandTest</code>.</p>
+</div>
+<div class="paragraph">
+<p>The core functionality of the mechanism is in the <code>executeUndoableCommand()</code> function of the <code>ImportContactsCommand</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ImportContactsCommand</code> borrows code from <em><a href="https://github.com/callicoder/java-read-write-csv-file" class="bare">https://github.com/callicoder/java-read-write-csv-file</a></em> for reading the CSV file</p>
+</div>
+<div class="paragraph">
+<p>The architecture of the mechanism is specified in the below diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportContactDiagram.png" alt="ImportContactDiagram" width="700">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-importcontactscommand-code"><a class="link" href="#aspect-implementation-of-code-importcontactscommand-code">Aspect: Implementation of <code>ImportContactsCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> <code>ImportContactsCommand</code>   extends <code>UndoableCommand</code> class and calls <code>model.addPerson</code>.</p>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Instead of extending <code>UndoableCommand</code> it would be possible to extend <code>AddCommand</code> class, and overwrite it to add a while loop to loop over the contacts imported from the CSV and add them to the model</p>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Instead of extending <code>UndoableCommand</code> it would be possible to extend the base class <code>Command</code>. Although this solution may be simpler at face value, it would limit the scope of <code>ImportContactsCommand</code> and may in fact not be much simpler to impliment.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-importcontactscommandparser-code"><a class="link" href="#aspect-implementation-of-code-importcontactscommandparser-code">Aspect: Implementation of <code>ImportContactsCommandParser</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Parses the argument and creates a new <code>ImportContactsCommand</code> passing it a file path if there is any</p>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Because we know there can only be 1 valid argument, we could check for validity and correctness in the <code>ImportContactsCommand</code> class and not implement a parser. This could simplify the overall architecture, but it would increase coupling and decrease cohesion, which is against modern software design principles.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-contacts-to-csv-file-function"><a class="link" href="#export-contacts-to-csv-file-function">Export Contacts to CSV file Function</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The exporting persons mechanism allows the user to write the current <code>Person</code> list from the <code>ReadOnlyAddressBook</code> to a .csv file. The core functionality of this mechanism is contained in the <code>ExportContactsCommand</code> class, with a parser written in <code>ExportContactsCommandParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the user does not specify a file path, <code>ExportContactsCommand</code> will be default write to <em>data/exportToExisting.csv</em>. If the user specifies a path to a file that doesn&#8217;t exist, <code>CSVPrinter</code> will create the .csv file and write to it.</p>
+</div>
+<div class="paragraph">
+<p><code>ExportContactsCommand</code> borrows code from <em><a href="https://github.com/callicoder/java-read-write-csv-file" class="bare">https://github.com/callicoder/java-read-write-csv-file</a></em> for creating and writing to a .csv file</p>
+</div>
+<div class="paragraph">
+<p>A diagram of the architecture is displayed below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportContactDiagram.png" alt="ExportContactDiagram" width="700">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-importcontactscommand-getcsvtowriteto-code"><a class="link" href="#aspect-implementation-of-code-importcontactscommand-getcsvtowriteto-code">Aspect: Implementation of <code>ImportContactsCommand.getCsvToWriteTo()</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Put the logic for <code>getCsvToWriteTo()</code> in a separate function that creates and returns a local <code>CSVPrinter</code> object.</p>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> An alternative would be to make the <code>CSVPrinter</code> object global, instead of returning a local one. This may be slightly more efficient, but it creates inherent risk in that the global variable ma ybe unintentionally modified by another class before writing. Therefore it makes sense to pass it as a local variable.</p>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Another option would be to simply combin the functionality of <code>getCsvToWriteTo()</code> with <code>executeUndoableCommand()</code> because they are naturally called together. Although <code>executeUndoableCommand()</code> depends on <code>getCsvToWriteTo()</code>, the reverse dependency does not hold so in order to increase coupling and decrease cohesion it&#8217;s better to create a separate function for <code>getCsvToWriteTo()</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-exportcontactscommandparser-code"><a class="link" href="#aspect-implementation-of-code-exportcontactscommandparser-code">Aspect: Implementation of <code>ExportContactsCommandParser</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> The <code>ExportContactsCommandParser.parse(String args)</code> function uses the condition <code>if(args.length() &lt; 1)</code> to check whether the String, <code>args</code> is <em>null</em>.</p>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> An alternative would be to simply check <code>if(args == null)</code> the problem with this approach is that it does not function correctly. The the user inputs <code>ec</code>, args is not returned as null, nor is it returned as an empty string. Instead it&#8217;s returned as a <em>non-null string</em> with <code>agrs.length() = 0</code>. Therefore the best way to check whether the user entered a file path is simply check the length of the String <strong>args</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-13 19:42:39 UTC
+</div>
+</div>
+</body>
+</html>

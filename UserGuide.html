@@ -5,14 +5,14 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>AddressBook Level 4 - User Guide</title>
+<title>AddSurance - User Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>AddressBook Level 4 - User Guide</h1>
+<h1>AddSurance - User Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -26,26 +26,16 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#ui-layout-and-explanations">3. UI Layout and Explanations</a></li>
+<li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#general-features">4.1. General Features</a></li>
+<li><a href="#contacts-features">4.2. Contacts Features</a></li>
+<li><a href="#scheduling-features">4.3. Scheduling Features</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -53,7 +43,11 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p><strong>AddSurance</strong> is an address book application targeted at insurance agents who <strong>prefer to use a desktop application for managing contacts with current or potential clients</strong>.
+It allows insurance agents to manage a huge list of contacts in batches, as well as keep track of appointments with clients.
+More importantly, AddSurance is <strong>optimized for insurance agents who prefer to work with a Command Line Interface</strong> (CLI) while still having
+the benefits of a Graphical User Interface (GUI). If you can type fast, AddSurance can get your contact management tasks done faster
+than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -79,7 +73,7 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/CS2103JAN2018-W10-B4/addressbook-level4/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -93,8 +87,8 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+<p>Type the command/command alias in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help</code></strong> or <strong><code>h</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
@@ -104,26 +98,48 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
+<p><strong><code>l</code></strong> : lists all contacts</p>
+</li>
+<li>
 <p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+</li>
+<li>
+<p><strong><code>a</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
 </li>
 <li>
+<p><strong><code>d</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+</li>
+<li>
 <p><strong><code>exit</code></strong> : exits the app</p>
+</li>
+<li>
+<p><strong><code>ex</code></strong> : exits the app</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#Features">Section 4, &#8220;Features&#8221;</a> for details of each command.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="ui-layout-and-explanations"><a class="link" href="#ui-layout-and-explanations">3. UI Layout and Explanations</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/UIExplanations.png" alt="UIExplanations" width="900">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -136,261 +152,34 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/client</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/client</code>, <code>t/client t/owes money</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
 </li>
+<li>
+<p>Actual command words can be replaced by their aliases e.g. for the help command, user can use its alias, <strong><code>h</code></strong>, instead.</p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="general-features"><a class="link" href="#general-features">4.1. General Features</a></h3>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code-or-code-h-code"><a class="link" href="#viewing-help-code-help-code-or-code-h-code">4.1.1. Viewing help : <code>help</code> or <code>h</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Format: <code>help</code> or <code>h</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
-<div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags (including 0)
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
-<div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
-<div class="paragraph">
-<p>Selects the person identified by the index number used in the last person listing.<br>
-Format: <code>select INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
-<div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
+<div class="sect3">
+<h4 id="undoing-previous-command-code-undo-code-or-code-u-code"><a class="link" href="#undoing-previous-command-code-undo-code-or-code-u-code">4.1.2. Undoing previous command : <code>undo</code> or <code>u</code></a></h4>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+Format: <code>undo</code> or <code>u</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -431,11 +220,11 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<div class="sect3">
+<h4 id="redoing-the-previously-undone-command-code-redo-code-or-code-r-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-or-code-r-code">4.1.3. Redoing the previously undone command : <code>redo</code> or <code>r</code></a></h4>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+Format: <code>redo</code> or <code>r</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -463,37 +252,988 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
+<div class="sect3">
+<h4 id="listing-entered-commands-code-history-code-or-code-hist-code"><a class="link" href="#listing-entered-commands-code-history-code-or-code-hist-code">4.1.4. Listing entered commands : <code>history</code> or <code>hist</code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Lists all the commands that you have entered in reverse chronological order.<br>
+Format: <code>history</code> or <code>hist</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code-or-code-ex-code"><a class="link" href="#exiting-the-program-code-exit-code-or-code-ex-code">4.1.5. Exiting the program : <code>exit</code> or <code>ex</code></a></h4>
 <div class="paragraph">
 <p>Exits the program.<br>
-Format: <code>exit</code></p>
+Format: <code>exit</code> or <code>ex</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<div class="sect3">
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">4.1.6. Saving the data</a></h4>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="contacts-features"><a class="link" href="#contacts-features">4.2. Contacts Features</a></h3>
+<div class="sect3">
+<h4 id="adding-a-person-code-add-code-or-code-a-code"><a class="link" href="#adding-a-person-code-add-code-or-code-a-code">4.2.1. Adding a person: <code>add</code> or <code>a</code></a></h4>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Adds a person to the address book<br>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code> or <code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A person can have any number of tags (including 0)
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+</li>
+<li>
+<p><code>add n/Betsy Crowe t/client e/betsycrowe@example.com a/New Hill Village p/1234567 t/owes money</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-persons-code-list-code-or-code-l-code"><a class="link" href="#listing-all-persons-code-list-code-or-code-l-code">4.2.2. Listing all persons : <code>list</code> or <code>l</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all persons in the address book.<br>
+Format: <code>list</code> or <code>l</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-person-code-edit-code-or-code-e-code"><a class="link" href="#editing-a-person-code-edit-code-or-code-e-code">4.2.3. Editing a person : <code>edit</code> or <code>e</code></a></h4>
+<div class="paragraph">
+<p>Edits an existing person in the address book.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code> or <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+</li>
+<li>
+<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+</li>
+<li>
+<p><code>edit 2 n/Betsy Crower t/</code><br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-persons-by-detail-code-find-code-or-code-f-code"><a class="link" href="#locating-persons-by-detail-code-find-code-or-code-f-code">4.2.4. Locating persons by detail: <code>find</code> or <code>f</code></a></h4>
+<div class="paragraph">
+<p>Finds persons whose details contain any of the given keywords or part thereof.<br>
+Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>All the details will be searched.</p>
+</li>
+<li>
+<p>Partial words will be matched e.g. <code>Han</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find Betsy Tim John</code><br>
+Returns any person having names containing <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-person-code-delete-code-or-code-d-code"><a class="link" href="#deleting-a-person-code-delete-code-or-code-d-code">4.2.5. Deleting a person : <code>delete</code> or <code>d</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified person from the address book.<br>
+Format: <code>delete INDEX</code> or <code>d INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd person in the address book.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>delete 1</code><br>
+Deletes the 1st person in the results of the <code>find</code> command</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-dated-persons-code-deletebefore-code-or-code-db-code"><a class="link" href="#deleting-dated-persons-code-deletebefore-code-or-code-db-code">4.2.6. Deleting dated persons  : <code>deletebefore</code> or <code>db</code></a></h4>
+<div class="paragraph">
+<p>Deletes all persons added before a specified date matching all specified tags.<br>
+Format: <code>deletebefore d/DATE t/TAG&#8230;&#8203;</code> or <code>db d/DATE t/TAG&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Persons deleted must have all the specified <code>TAG</code> s.</p>
+</li>
+<li>
+<p>The specified <code>TAG</code> s can be in any order.</p>
+</li>
+<li>
+<p><strong>At least one</strong> <code>TAG</code> must be provided.</p>
+</li>
+<li>
+<p>The input <code>DATE</code> <strong>must be in the following format: dd/MM/yyyy</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You are encouraged to <strong>attach tags to persons</strong> representing different groups.
+This way, you can delete persons of a particular group who were added before a date.
+<em>For example, to delete contacts relating to non-clients in batch, you can attach a <strong>"nonclient"</strong> tag to these persons and
+use the <code>deletebefore</code> command.</em>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletebefore d/12/12/2017 t/nonclients</code><br>
+Deletes all non-clients added before 12/12/2017 in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="emailing-a-person-code-email-code-or-code-em-code"><a class="link" href="#emailing-a-person-code-email-code-or-code-em-code">4.2.7. Emailing a person : <code>email</code> or <code>em</code></a></h4>
+<div class="paragraph">
+<p>Emails a person based on the specified name.
+Format: <code>email KEYWORD TEMPLATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Emailed person must have name match the full word of keyword</p>
+</li>
+<li>
+<p>Template chosen must contain the TEMPLATE keyword.</p>
+</li>
+<li>
+<p>Search is case insensitive. e.g. hans will match Hans</p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be emailed. eg. Hans Bo will email Hans Gruber, Bo Yang</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-a-new-template-code-addtemplate-code-or-code-at-code"><a class="link" href="#creating-a-new-template-code-addtemplate-code-or-code-at-code">4.2.8. Creating a new template : <code>addTemplate</code> or <code>at</code></a></h4>
+<div class="paragraph">
+<p>Creates a new template based on the specified purpose, subject and message.
+Format: <code>addTemplate pu/PURPOSE s/SUBJECT m/MESSAGE</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You cannot create two templates with the same purpose
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addTemplate pu/greeting s/Hello There m/Luke I am your father</code></p>
+</li>
+<li>
+<p><code>addTemplate pu/holiday s/Merry Christmas m/Santa Claus is coming to town!</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-template-code-deletetemplate-code-or-code-dt-code"><a class="link" href="#deleting-a-template-code-deletetemplate-code-or-code-dt-code">4.2.9. Deleting a template : <code>deleteTemplate</code> or <code>dt</code></a></h4>
+<div class="paragraph">
+<p>Deletes a template in the address book.<br>
+Format: <code>deleteTemplate PURPOSE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes a template with the specified purpose</p>
+</li>
+<li>
+<p>A template with the specified purpose must exist in Addsurance</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>dt greeting</code><br>
+Deletes the template with the purpose greeting.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-contacts-in-address-book-code-sort_by_name-code-or-code-sort-code"><a class="link" href="#sorting-contacts-in-address-book-code-sort_by_name-code-or-code-sort-code">4.2.10. Sorting contacts in address book : <code>sort_by_name</code> or <code>sort</code></a></h4>
+<div class="paragraph">
+<p>Sorts the contacts in the address book in alphabetical order by name. Sorting will not distinguish between first and last names, but will sort by the full text entered for a contacts name.</p>
+</div>
+<div class="paragraph">
+<p>Currently only sorting alphabetically by name is supported.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+No arguments are necessary, can simply enter <code>sort</code> in CLI
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort</code> or <code>sort_by_name</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort</code></p>
+</li>
+<li>
+<p><code>sort_by_name</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="importing-contacts-from-csv-code-import_contacts-code-or-code-ic-code"><a class="link" href="#importing-contacts-from-csv-code-import_contacts-code-or-code-ic-code">4.2.11. Importing contacts from CSV : <code>import_contacts</code> or <code>ic</code></a></h4>
+<div class="paragraph">
+<p>Imports contacts from a csv file that contains the header (Name, Email, Phone, Address)<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>import_contacts PATH.csv</code></p>
+</div>
+<div class="paragraph">
+<p>For example <code>import_contacts ~/PATH/examplefile.csv</code> will import the contacts contained in the .csv file <code>examplefile.csv</code> at <code>PATH</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>The <em>command</em> should meet the following conditions:</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Include the file extension <code>.csv</code> at the end of the file path</p>
+</li>
+<li>
+<p>Use the <strong>full</strong> (not the <em>relative</em>) file path</p>
+</li>
+<li>
+<p><em>No need</em> to include quotations ("&#8230;&#8203;") around the file path</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>The <code>.csv</code> file from which you are importing the contacts should:</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Have 4 headers in the following order: Name, Email, Phone, Address. The header is simply the first row of the .csv</p>
+</li>
+<li>
+<p>Be a <code>.csv</code> file. <code>.txt</code> and other file endings are not supported</p>
+</li>
+<li>
+<p>Each entry should follow the standard conditions for Name, Phone, Email, and Address. For example, phone numbers must be more than 3 numbers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An example of a suitable import file format is shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/import_file_example.png" alt="import file example" width="700">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exporting-contacts-to-csv-code-export_contacts-code-or-code-ec-code"><a class="link" href="#exporting-contacts-to-csv-code-export_contacts-code-or-code-ec-code">4.2.12. Exporting contacts to CSV: <code>export_contacts</code> or <code>ec</code></a></h4>
+<div class="paragraph">
+<p>Export all contacts to a .csv file.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>ec PATH</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is not necessary to include a file path after the command. If no file path is included, <code>ec</code> will create and write to a new .csv file, <em>data/exportToExisting.csv</em>. This is necessary for testing purposes, so we encourage the user to specify a file path.
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Be sure to include .csv at the end of the file name</p>
+</li>
+<li>
+<p>No need to put the file path in quotes ("&#8230;&#8203;"), can simply write it directly</p>
+</li>
+<li>
+<p>Can write absolute or local file path</p>
+</li>
+<li>
+<p>You may also give the path to a file name that doesn&#8217;t yet exist. For example, you may call <code>ec data/newFileExample.csv</code> where <code>data/newFileExample.csv</code> does not yet exist. In this case, a new .csv file will be automatically created and written to.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-contacts-code-clear-code-or-code-c-code"><a class="link" href="#clearing-all-contacts-code-clear-code-or-code-c-code">4.2.13. Clearing all contacts : <code>clear</code> or <code>c</code></a></h4>
+<div class="paragraph">
+<p>Clears all contacts from the address book.<br>
+Format: <code>clear</code> or <code>c</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selecting-a-person-code-select-code-or-code-s-code-code-coming-in-v2-0-code"><a class="link" href="#selecting-a-person-code-select-code-or-code-s-code-code-coming-in-v2-0-code">4.2.14. Selecting a person : <code>select</code> or <code>s</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Selects the person identified by the index number used in the last person listing.<br>
+Format: <code>select INDEX</code> or <code>s INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the person and loads the profile page of the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The profile page includes the person&#8217;s personal details and insurance policies.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>select 2</code><br>
+Selects the 2nd person in the address book and shows the profile page of the person.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>select 1</code><br>
+Selects the 1st person in the results of the <code>find</code> command and shows the profile page of the person.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scheduling-features"><a class="link" href="#scheduling-features">4.3. Scheduling Features</a></h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The calendar view is optimized for fullscreen mode.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Currently, there is a glitch in the scaling of the calendar Year Page. We are working with the
+third party provider to resolve this issue.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="adding-an-appointment-code-addappointment-code-or-code-aa-code"><a class="link" href="#adding-an-appointment-code-addappointment-code-or-code-aa-code">4.3.1. Adding an appointment : <code>addappointment</code> or <code>aa</code></a></h4>
+<div class="paragraph">
+<p>Adds an appointment to the address book that will be shown in the calendar panel.<br>
+Format: <code>addappointment n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code> or <code>aa n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds an appointment with the person named <code>NAME</code>, with the specified <code>DATE</code>, <code>STARTTIME</code>, <code>ENDTIME</code> and <code>LOCATION</code> respectively</p>
+</li>
+<li>
+<p>The input <strong><code>STARTTIME</code> must precede <code>ENDTIME</code></strong></p>
+</li>
+<li>
+<p>The input <code>DATE</code> <strong>must be in the following format: dd/MM/yyyy</strong>.</p>
+</li>
+<li>
+<p>The input <code>STARTTIME</code> and <code>ENDTIME</code> <strong>must be in the following format: HH:mm (24hr format)</strong>.</p>
+</li>
+<li>
+<p>The calendar panel will be updated accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The appointment added <strong>need not be related to any person existing in the address book</strong>. This gives you the flexibility
+to keep track of appointments with anyone, without having to add that person into the address book.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+You are <strong>not allowed to add appointments that clash in time.</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/aaScreenshot.png" alt="aaScreenshot" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>aa n/Betsy d/12/12/2017 st/12:30 et/13:30 l/Gold Park Estate</code><br>
+Creates an appointment with Betsy on 12/12/2017 from 12:30pm to 1:30pm at Gold Park Estate.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-an-appointment-code-deleteappointment-code-or-code-da-code"><a class="link" href="#deleting-an-appointment-code-deleteappointment-code-or-code-da-code">4.3.2. Deleting an appointment : <code>deleteappointment</code> or <code>da</code></a></h4>
+<div class="paragraph">
+<p>Deletes an appointment in the address book.<br>
+Format: <code>deleteappointment n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code> or <code>da n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes an appointment that matches all the input <code>NAME</code>, <code>DATE</code>, <code>STARTTIME</code>, <code>ENDTIME</code> and <code>LOCATION</code>.</p>
+</li>
+<li>
+<p>The input <code>DATE</code> <strong>must be in the following format: dd/MM/yyyy</strong>.</p>
+</li>
+<li>
+<p>The input <code>STARTTIME</code> and <code>ENDTIME</code> <strong>must be in the following format: HH:mm (24hr format)</strong>.</p>
+</li>
+<li>
+<p>The calendar panel will be updated accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the current version, the deleteappointment command requires you to input all fields of the appointment to be deleted.
+This command will be upgraded to the <a href="#da_enhanced">enhanced deleteappointment command</a> which will be available in v2.0.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/daScreenshot.png" alt="daScreenshot" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>da n/Betsy d/12/12/2017 st/12:30 et/13:30 l/Gold Park Estate</code><br>
+Deletes the appointment previously arranged with Betsy on 12/12/2017 from 12:30pm to 1:30pm at Gold Park Estate.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="zooming-in-calendar-view-code-zoomin-code-or-code-zi-code"><a class="link" href="#zooming-in-calendar-view-code-zoomin-code-or-code-zi-code">4.3.3. Zooming in calendar view : <code>zoomin</code> or <code>zi</code></a></h4>
+<div class="paragraph">
+<p>Zooms in the calendar panel to show a more detailed calendar view <br>
+Format: <code>zoomin</code> or <code>zi</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The calendar will zoom in in the following order: Year View &#8594; Month View &#8594; Week View &#8594; Day View.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ziScreenshot.png" alt="ziScreenshot" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>zi</code><br>
+If the calendar panel is previously showing the Month View, it will now be showing the Week View.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="zooming-out-calendar-view-code-zoomout-code-or-code-zo-code"><a class="link" href="#zooming-out-calendar-view-code-zoomout-code-or-code-zo-code">4.3.4. Zooming out calendar view : <code>zoomout</code> or <code>zo</code></a></h4>
+<div class="paragraph">
+<p>Zooms out the calendar panel to show a wider calendar view <br>
+Format: <code>zoomout</code> or <code>zo</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The calendar will zoom out in the following order: Day View &#8594; Week View &#8594; Month View &#8594; Year View.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/zoScreenshot.png" alt="zoScreenshot" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>zo</code><br>
+If the calendar panel is previously showing the Day View, it will now be showing the Week View.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="going-backward-on-calendar-view-code-gobackward-code-or-code-gb-code"><a class="link" href="#going-backward-on-calendar-view-code-gobackward-code-or-code-gb-code">4.3.5. Going backward on calendar view : <code>gobackward</code> or <code>gb</code></a></h4>
+<div class="paragraph">
+<p>Makes the calendar view go backward in time from the currently displaying date.<br>
+Format: <code>gobackward</code> or <code>gb</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gbScreenshot.png" alt="gbScreenshot" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>gb</code><br>
+If the calendar panel is currently displaying Day View for 02/02/2018, it will change the Day View to 01/02/2018</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="going-forward-on-calendar-view-code-goforward-code-or-code-gf-code"><a class="link" href="#going-forward-on-calendar-view-code-goforward-code-or-code-gf-code">4.3.6. Going forward on calendar view : <code>goforward</code> or <code>gf</code></a></h4>
+<div class="paragraph">
+<p>Makes the calendar view go forward in time from the currently displaying date.<br>
+Format: <code>goforward</code> or <code>gf</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/gfScreenshot.png" alt="gfScreenshot" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>gf</code><br>
+If the calendar panel is currently displaying Day View for 02/02/2018, it will change the Day View to 03/02/2018</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-an-appointment-code-findappointment-code-or-code-fa-code-code-coming-in-v2-0-code"><a class="link" href="#finding-an-appointment-code-findappointment-code-or-code-fa-code-code-coming-in-v2-0-code">4.3.7. Finding an appointment : <code>findappointment</code> or <code>fa</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Finds appointments with details containing any of the given keywords or part thereof.<br>
+Format: <code>findappointment KEYWORD&#8230;&#8203;</code> or <code>fa KEYWORD&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Keywords are words that are part of any fields of an appointment, i.e. <code>NAME</code>, <code>DATE</code>, <code>STARTTIME</code>, <code>ENDTIME</code> and <code>LOCATION</code></p>
+</li>
+<li>
+<p>The search is case insensitive. e.g. <code>gold park</code> will match <code>Gold Park</code></p>
+</li>
+<li>
+<p>All the details of an appointment will be searched.</p>
+</li>
+<li>
+<p>Partial words will be matched e.g. <code>gol</code> will match <code>gold park</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findappointment 12/12/2018</code><br>
+Returns any appointment that is scheduled on 12/12/2018</p>
+</li>
+<li>
+<p><code>findappointment Betsy Tim John</code><br>
+Returns any appointment with <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-an-appointment-code-editappointment-code-or-code-ea-code-code-coming-in-v2-0-code"><a class="link" href="#editing-an-appointment-code-editappointment-code-or-code-ea-code-code-coming-in-v2-0-code">4.3.8. Editing an appointment : <code>editappointment</code> or <code>ea</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Edits an appointment in the address book.<br>
+Format: <code>editappointment INDEX [n/NAME] [d/DATE] [st/STARTTIME] [et/ENDTIME] [l/LOCATION]</code>
+or <code>ea INDEX [n/NAME] [d/DATE] [st/STARTTIME] [et/ENDTIME] [l/LOCATION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits an appointment at the specified <code>INDEX</code>.
+The index refers to the index number shown in the last appointment listing. The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>The input <code>DATE</code> <strong>must be in the following format: dd/MM/yyyy</strong>.</p>
+</li>
+<li>
+<p>The input <code>STARTTIME</code> and <code>ENDTIME</code> <strong>must be in the following format: HH:mm (24hr format)</strong>.</p>
+</li>
+<li>
+<p>The calendar panel will be updated accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findappointment Betsy</code><br>
+<code>editappointment 1 d/25/12/2017 l/Parkway Parade</code><br>
+Edits the date and location of the first appointment with Betsy in the listing to 25/12/2017 and Parkway Parade respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="da_enhanced"><a class="link" href="#da_enhanced">4.3.9. Deleting an appointment (enhanced) : <code>deleteappointment</code> or <code>da</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified appointment in the address book.<br>
+Format: <code>deleteappointment INDEX</code> or <code>da INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the appointment at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The calendar panel will be updated accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findappointment 12/12/2018</code><br>
+<code>deleteappointment 1</code><br>
+Deletes the 1st appointment in the results of the <code>findappointment</code> command</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="configuring-calendar-theme-code-configcalendar-code-or-code-cc-code-code-coming-in-v2-0-code"><a class="link" href="#configuring-calendar-theme-code-configcalendar-code-or-code-cc-code-code-coming-in-v2-0-code">4.3.10. Configuring calendar theme : <code>configcalendar</code> or <code>cc</code> <code>[Coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Configures the calendar view.<br>
+Format: <code>configcalendar s/STYLE</code> or <code>cc s/STYLE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Set the calendar theme to the specified predefined <code>STYLE</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cc s/STYLE_2</code><br>
+Set the calendar theme to the predefined <code>STYLE_2</code>.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -502,47 +1242,115 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+<p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
+<p><strong>Add Appointment</strong> : <code>addappointment n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code><br>
+e.g. <code>addappointment n/Betsy d/12/12/2017 st/12:30 et/13:30 l/Gold Park Estate</code></p>
+</li>
+<li>
+<p><strong>Add Template</strong> : <code>addTemplate pu/PURPOSE s/SUBJECT m/MESSAGE</code><br>
+e.g. <code>addTemplate pu/holiday s/Merry Christmas m/Santa Claus is coming to town!</code></p>
+</li>
+<li>
+<p><strong>Calendar Go Back</strong> : <code>gobackward</code></p>
+</li>
+<li>
+<p><strong>Calendar Go Forward</strong> : <code>goforward</code></p>
+</li>
+<li>
 <p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Configure Calendar Theme <code>[Coming in v2.0]</code></strong> : <code>configcalendar s/STYLE</code>
+e.g. <code>configcalendar s/STYLE_2</code></p>
 </li>
 <li>
 <p><strong>Delete</strong> : <code>delete INDEX</code><br>
 e.g. <code>delete 3</code></p>
 </li>
 <li>
+<p><strong>Delete Appointment</strong> : <code>deleteappointment n/NAME d/DATE st/STARTTIME et/ENDTIME l/LOCATION</code><br>
+e.g. <code>deleteappointment n/Betsy d/12/12/2017 st/12:30 et/13:30 l/Gold Park Estate</code></p>
+</li>
+<li>
+<p><strong>Delete Appointment (Enhanced) <code>[Coming in v2.0]</code></strong> : <code>deleteappointment INDEX</code><br>
+e.g. <code>deleteappointment 3</code></p>
+</li>
+<li>
+<p><strong>Delete Before</strong> : <code>deletebefore d/DATE [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>deletebefore d/12/12/2017 t/friends</code></p>
+</li>
+<li>
+<p><strong>Delete Template</strong> : <code>deleteTemplate PURPOSE</code><br>
+e.g. <code>deleteTemplate greeting</code></p>
+</li>
+<li>
+<p><strong>Email</strong> : <code>email KEYWORD TEMPLATE</code><br>
+e.g. <code>email James followup</code></p>
+</li>
+<li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+</li>
+<li>
+<p><strong>Edit Appointment <code>[Coming in v2.0]</code></strong> : <code>editappointment INDEX [n/NAME] [d/DATE] [st/STARTTIME] [et/ENDTIME] [l/LOCATION]</code><br>
+e.g. <code>editappointment 1 d/25/12/2017 l/Parkway Parade</code></p>
+</li>
+<li>
+<p><strong>Export Contacts</strong> : <code>export_contacts PATH</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>find James Jake</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Find Appointment <code>[Coming in v2.0]</code></strong> : <code>findappointment KEYWORD&#8230;&#8203;</code><br>
+e.g. <code>findappointment 12/12/2018</code></p>
+</li>
+<li>
+<p><strong>Go Backward</strong> : <code>gobackward</code></p>
+</li>
+<li>
+<p><strong>Go Forward</strong> : <code>goforward</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
+<p><strong>History</strong> : <code>history</code></p>
+</li>
+<li>
+<p><strong>Import Contacts</strong> : <code>import_contacts PATH.csv</code><br>
+e.g. <code>import_contacts ~/PATH/examplefile.csv</code></p>
+</li>
+<li>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Redo</strong> : <code>redo</code></p>
+</li>
+<li>
+<p><strong>Select <code>[Coming in v2.0]</code></strong> : <code>select INDEX</code><br>
 e.g.<code>select 2</code></p>
 </li>
 <li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>Sort</strong> : <code>sort</code></p>
 </li>
 <li>
 <p><strong>Undo</strong> : <code>undo</code></p>
 </li>
 <li>
-<p><strong>Redo</strong> : <code>redo</code></p>
+<p><strong>Zoom In</strong> : <code>zoomin</code></p>
+</li>
+<li>
+<p><strong>Zoom Out</strong> : <code>zoomout</code></p>
 </li>
 </ul>
 </div>
@@ -551,7 +1359,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-21 14:13:38 UTC
+Last updated 2018-04-13 19:42:39 UTC
 </div>
 </div>
 </body>
