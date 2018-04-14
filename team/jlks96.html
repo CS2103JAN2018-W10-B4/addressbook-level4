@@ -71,7 +71,8 @@ management function for the address book.</p>
 <p>This enhancement requires good adherence to the existing architecture as it touches <strong>all components</strong>
 of the architecture. A new <code>Appointment</code> model was created to support persistent storage of appointments in the address book.
 Besides, numerous commands were implemented for this enhancement. The most challenging part of all was the integration of third party
-calendar libraries, provided by <strong><a href="https://github.com/dlemmermann/CalendarFX">CalendarFX 8</a></strong>, into the application.</p>
+calendar libraries, provided by <strong><a href="https://github.com/dlemmermann/CalendarFX">CalendarFX 8</a></strong>, into the application. Besides, several
+Software Engineering Principles, such as SOLID, YAGNI and DRY Principles, were closely followed.</p>
 </li>
 </ul>
 </div>
@@ -81,33 +82,13 @@ calendar libraries, provided by <strong><a href="https://github.com/dlemmermann/
 <h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor enhancement</a></h3>
 <div class="paragraph">
 <p>Implemented a delete dated persons function which allows the user to delete persons added before a
-date who match all the tags specified by the user.</p>
-</div>
-<div class="sect3">
-<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Insurance agents tend to have many obsolete contacts especially those of non-clients. With this function, insurance agents
-can delete a group of people, as indicated by some tags, that was added before a date to clear up some space in the address book.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="highlights-2"><a class="link" href="#highlights-2">Highlights</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>This enhancement requires in-depth, cross-component implementation despite being a minor enhancement. The Single Responsibility
-Principle was closely adhered to to ensure that the implementations do not violate the existing architecture.</p>
-</li>
-</ul>
+date who match all the tags specified by the user. As insurance agents tend to have many obsolete contacts especially those of non-clients,
+with this function, they can delete a group of people, as indicated by some tags, that was added before a date to
+clear up some space in the address book.</p>
 </div>
 <div class="sect4">
 <h5 id="code-contributed-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-functional-jlks96-md-functional-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-functional-jlks96-reused-md-adapted-functional-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-test-jlks96-md-test-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-test-jlks96-reused-md-adapted-test-code-a"><a class="link" href="#code-contributed-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-functional-jlks96-md-functional-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-functional-jlks96-reused-md-adapted-functional-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-test-jlks96-md-test-code-a-a-href-https-github-com-cs2103jan2018-w10-b4-main-blob-master-collated-test-jlks96-reused-md-adapted-test-code-a">Code contributed: [<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/functional/jlks96.md">Functional Code</a>][<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/functional/jlks96-reused.md">Adapted Functional Code</a>][<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/test/jlks96.md">Test Code</a>][<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/test/jlks96-reused.md">Adapted Test Code</a>]</a></h5>
 
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1191,43 +1172,31 @@ and <code>ZoomOutCommand</code> will then handle these events raised by throwing
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ZoomInCommand</span> <span class="directive">extends</span> Command {
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_WORD = <span class="string"><span class="delimiter">&quot;</span><span class="content">zoomin</span><span class="delimiter">&quot;</span></span>;
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_ALIAS = <span class="string"><span class="delimiter">&quot;</span><span class="content">zi</span><span class="delimiter">&quot;</span></span>;
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+<span class="directive">public</span> CommandResult execute() <span class="directive">throws</span> CommandException {
+    registerAsAnEventHandler(<span class="local-variable">this</span>);
+    raise(<span class="keyword">new</span> ZoomInEvent());
+    <span class="keyword">while</span> (!receivedFeedback);
 
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_SUCCESS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Calendar zoomed in</span><span class="delimiter">&quot;</span></span>;
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_MAX_ZOOM_IN = <span class="string"><span class="delimiter">&quot;</span><span class="content">The calendar is already zoomed in to the maximum level</span><span class="delimiter">&quot;</span></span>;
-
-    <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">Logger</span> logger = LogsCenter.getLogger(<span class="local-variable">this</span>.getClass());
-    <span class="directive">private</span> <span class="type">boolean</span> receivedFeedback = <span class="predefined-constant">false</span>;
-    <span class="directive">private</span> <span class="type">boolean</span> isSuccessful = <span class="predefined-constant">false</span>;
-
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() <span class="directive">throws</span> CommandException {
-        registerAsAnEventHandler(<span class="local-variable">this</span>);
-        raise(<span class="keyword">new</span> ZoomInEvent());
-        <span class="keyword">while</span> (!receivedFeedback);
-
-        <span class="keyword">if</span> (isSuccessful) {
-            <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS);
-        } <span class="keyword">else</span> {
-            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_MAX_ZOOM_IN);
-        }
+    <span class="keyword">if</span> (isSuccessful) {
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS);
+    } <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_MAX_ZOOM_IN);
     }
+}
 
-    <span class="annotation">@Subscribe</span>
-    <span class="directive">private</span> <span class="type">void</span> handleMaxZoomInEvent(MaxZoomInEvent event) {
-        logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        receivedFeedback = <span class="predefined-constant">true</span>;
-        isSuccessful = <span class="predefined-constant">false</span>;
-    }
+<span class="annotation">@Subscribe</span>
+<span class="directive">private</span> <span class="type">void</span> handleMaxZoomInEvent(MaxZoomInEvent event) {
+    logger.info(LogsCenter.getEventHandlingLogMessage(event));
+    receivedFeedback = <span class="predefined-constant">true</span>;
+    isSuccessful = <span class="predefined-constant">false</span>;
+}
 
-    <span class="annotation">@Subscribe</span>
-    <span class="directive">private</span> <span class="type">void</span> handleZoomSuccessEvent(ZoomSuccessEvent event) {
-        logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        receivedFeedback = <span class="predefined-constant">true</span>;
-        isSuccessful = <span class="predefined-constant">true</span>;
-    }
+<span class="annotation">@Subscribe</span>
+<span class="directive">private</span> <span class="type">void</span> handleZoomSuccessEvent(ZoomSuccessEvent event) {
+    logger.info(LogsCenter.getEventHandlingLogMessage(event));
+    receivedFeedback = <span class="predefined-constant">true</span>;
+    isSuccessful = <span class="predefined-constant">true</span>;
 }</code></pre>
 </div>
 </div>
@@ -1279,7 +1248,7 @@ raising functionality</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 08:37:52 UTC
+Last updated 2018-04-14 14:44:10 UTC
 </div>
 </div>
 </body>

@@ -1677,43 +1677,31 @@ and <code>ZoomOutCommand</code> will then handle these events raised by throwing
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ZoomInCommand</span> <span class="directive">extends</span> Command {
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_WORD = <span class="string"><span class="delimiter">&quot;</span><span class="content">zoomin</span><span class="delimiter">&quot;</span></span>;
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_ALIAS = <span class="string"><span class="delimiter">&quot;</span><span class="content">zi</span><span class="delimiter">&quot;</span></span>;
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+<span class="directive">public</span> CommandResult execute() <span class="directive">throws</span> CommandException {
+    registerAsAnEventHandler(<span class="local-variable">this</span>);
+    raise(<span class="keyword">new</span> ZoomInEvent());
+    <span class="keyword">while</span> (!receivedFeedback);
 
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_SUCCESS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Calendar zoomed in</span><span class="delimiter">&quot;</span></span>;
-    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_MAX_ZOOM_IN = <span class="string"><span class="delimiter">&quot;</span><span class="content">The calendar is already zoomed in to the maximum level</span><span class="delimiter">&quot;</span></span>;
-
-    <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">Logger</span> logger = LogsCenter.getLogger(<span class="local-variable">this</span>.getClass());
-    <span class="directive">private</span> <span class="type">boolean</span> receivedFeedback = <span class="predefined-constant">false</span>;
-    <span class="directive">private</span> <span class="type">boolean</span> isSuccessful = <span class="predefined-constant">false</span>;
-
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() <span class="directive">throws</span> CommandException {
-        registerAsAnEventHandler(<span class="local-variable">this</span>);
-        raise(<span class="keyword">new</span> ZoomInEvent());
-        <span class="keyword">while</span> (!receivedFeedback);
-
-        <span class="keyword">if</span> (isSuccessful) {
-            <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS);
-        } <span class="keyword">else</span> {
-            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_MAX_ZOOM_IN);
-        }
+    <span class="keyword">if</span> (isSuccessful) {
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS);
+    } <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_MAX_ZOOM_IN);
     }
+}
 
-    <span class="annotation">@Subscribe</span>
-    <span class="directive">private</span> <span class="type">void</span> handleMaxZoomInEvent(MaxZoomInEvent event) {
-        logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        receivedFeedback = <span class="predefined-constant">true</span>;
-        isSuccessful = <span class="predefined-constant">false</span>;
-    }
+<span class="annotation">@Subscribe</span>
+<span class="directive">private</span> <span class="type">void</span> handleMaxZoomInEvent(MaxZoomInEvent event) {
+    logger.info(LogsCenter.getEventHandlingLogMessage(event));
+    receivedFeedback = <span class="predefined-constant">true</span>;
+    isSuccessful = <span class="predefined-constant">false</span>;
+}
 
-    <span class="annotation">@Subscribe</span>
-    <span class="directive">private</span> <span class="type">void</span> handleZoomSuccessEvent(ZoomSuccessEvent event) {
-        logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        receivedFeedback = <span class="predefined-constant">true</span>;
-        isSuccessful = <span class="predefined-constant">true</span>;
-    }
+<span class="annotation">@Subscribe</span>
+<span class="directive">private</span> <span class="type">void</span> handleZoomSuccessEvent(ZoomSuccessEvent event) {
+    logger.info(LogsCenter.getEventHandlingLogMessage(event));
+    receivedFeedback = <span class="predefined-constant">true</span>;
+    isSuccessful = <span class="predefined-constant">true</span>;
 }</code></pre>
 </div>
 </div>
@@ -3813,7 +3801,7 @@ Expected: The calendar panel is now showing the next day. Success message is sho
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 08:37:52 UTC
+Last updated 2018-04-14 14:44:10 UTC
 </div>
 </div>
 </body>
