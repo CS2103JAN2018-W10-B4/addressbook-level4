@@ -103,6 +103,9 @@
 <li><a href="#zooming-out-calendar-view">G.5. Zooming out calendar view</a></li>
 <li><a href="#going-backward-on-calendar-view">G.6. Going backward on calendar view</a></li>
 <li><a href="#going-forward-on-calendar-view">G.7. Going forward on calendar view</a></li>
+<li><a href="#adding-a-template">G.8. Adding a template</a></li>
+<li><a href="#deleting-a-template">G.9. Deleting a template</a></li>
+<li><a href="#sending-an-email">G.10. Sending an email</a></li>
 </ul>
 </li>
 </ul>
@@ -2971,9 +2974,6 @@ date who match all tags specified by the user</p>
 <p>Implementing <code>Email</code> Package and its subsidiary models</p>
 </li>
 <li>
-<p>Implementing persistence of data for Email Templates</p>
-</li>
-<li>
 <p>Implementing add and remove for new Email Templates</p>
 </li>
 </ul>
@@ -3796,12 +3796,104 @@ Expected: The calendar panel is now showing the next day. Success message is sho
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="adding-a-template"><a class="link" href="#adding-a-template">G.8. Adding a template</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a template</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A template with the same purpose cannot already exist</p>
+</li>
+<li>
+<p>Test case: <code>at pu/greeting s/Hello There m/Luke I am your father</code><br>
+Expected: A template with the following details will be created. Details of the template shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>at pu/greeting s/Hello There m/Luke I am your father</code><br>
+Expected: No template will be added. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect adding template commands to try: <code>at something</code>, <code>at</code>.+
+Expected: Similar to previous</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-template"><a class="link" href="#deleting-a-template">G.9. Deleting a template</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a template</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A template with the specified purpose must exist, and must be the exact string match</p>
+</li>
+<li>
+<p>Test case: <code>dt pu/greeting</code><br>
+Expected: Template with purpose <code>greeting</code> is deleted from the template list. Status message will indicate the purpose of deleted template.</p>
+</li>
+<li>
+<p>Test case: <code>dt pu/No Such Template</code><br>
+Expected: No template will be deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect deleting template commands to try: <code>dt</code>, <code>delete something</code><br>
+Expected: Similar to previous</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sending-an-email"><a class="link" href="#sending-an-email">G.10. Sending an email</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sending an email</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A template with the specified purpose must exist, and people matching the specified name must also exist.</p>
+</li>
+<li>
+<p>Test case : <code>em n/Amy pu/greeting</code><br>
+Expected: An email will be sent to Amy. If it is the first time sending email, user may be prompted to authenticate their Gmail account.
+Further emails will not require this as the credentials will be cached. Status message will reflect number of people email was sent to.</p>
+</li>
+<li>
+<p>Test case: <code>em n/NoSuchPerson pu/greeting</code><br>
+Expected: No email will be sent. Status message will reflect that there is no such persons found</p>
+</li>
+<li>
+<p>Test case: <code>em n/Amy pu/NoSuchTemplate</code><br>
+Expected: No email will be sent. Status message will reflect that there is no such Template found.</p>
+</li>
+<li>
+<p>Other incorrect email commands to try : <code>em</code>, <code>em person</code> <code>em template</code><br>
+Expected: Similar to previous</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 14:44:10 UTC
+Last updated 2018-04-14 14:59:40 UTC
 </div>
 </div>
 </body>
