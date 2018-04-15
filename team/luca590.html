@@ -18,9 +18,6 @@
 <div class="sect1">
 <h2 id="project-addsurance"><a class="link" href="#project-addsurance">PROJECT: AddSurance</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Addsurance is <em>the</em> insurance book for teh-savy insurance agents. Built specifically to support the functionality you need to organize and maintain your massive and growing list of contacts and demanding schedule, so that you may scale your business with greater ease. The user design is minimalistic, based in a Command Line Interface, to help you get the job done without distractions.</p>
-</div>
 <hr>
 </div>
 </div>
@@ -28,17 +25,16 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>AddSurance</strong></p>
+<p><strong>Addsurance</strong> is <em>the</em> insurance book for teh-savy insurance agents. Built specifically to support the functionality you need to organize and maintain your massive and growing list of contacts and demanding schedule, so that you may scale your business with greater ease. The user design is minimalistic, based in a Command Line Interface, to help you get the job done without distractions.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p><strong>Major enhancement</strong>:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -46,22 +42,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Creating and implementing <code>ImportContactsCommand</code> class</p>
+<p>Created and implemented <code>ImportContactsCommand</code> and <code>ImportContactsCommandParser</code> classes</p>
 </li>
 <li>
-<p>Creating and implementing <code>ExportContactsCommand</code> class</p>
+<p>Created and implemented <code>ExportContactsCommand</code> and <code>ExportContactsCommandParser</code> classes</p>
 </li>
 <li>
-<p>Integration with <code>AddressBookParser</code> in both cases</p>
+<p>Integration with <code>AddressBookParser</code> in above cases</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>What it does</strong>:</p>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>
@@ -86,7 +79,10 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>Creating new commands requires integration <code>AddressBookParser</code> and the model. Additionally, it uses the Apache Commons CSV dependency.</p>
+<p>Creating new commands requires integration <code>AddressBookParser</code> and the model. Additionally, it uses the Apache Commons CSV dependency. When creating the import and export commands, SOLID and OOP design principals were used. Additionally, careful attention was given to ensure the implementation minimized coupling while maximizing cohesion and followed defensive programming. Evidence of defensive programing can be found in that all functions either check for null variables (and additional requirements such as an uninitialize model), or implement checking in another function in order to distinguish between the two purposes.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, UML diagrams were created separately for both import and export in order to visualize the functionality.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -102,6 +98,19 @@
 <ul>
 <li>
 <p>Sorting alphabetically by name</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating and implementing <code>SortCommand</code> class</p>
+</li>
+<li>
+<p>Creating and implementing <code>PersonCompare</code> class that allows comparing <code>Persons</code> by <code>Name</code> attribute</p>
+</li>
+<li>
+<p>Implemented <code>sortAddressBookAlphabeticallyByName()</code> function in <code>AddressBook</code>, <code>Model</code>, and <code>ModelManager</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Justification</strong>:</p>
@@ -115,9 +124,12 @@
 </li>
 <li>
 <p><strong>Highlights</strong>:
-Although sorting seems like a simple task, it required full integration with all parts of the system excluding the UI. Functions were added to <code>AddressBook</code>, <code>Model</code>, <code>ModelManager</code>, and finally <code>AddressBookParser</code>. <code>SortCommand</code> and <code>PersonCompare</code> was a newly created and implemented class.</p>
+Although sorting seems like a simple task, it requires full integration with all parts of the architecture (excluding the UI). Functions were added to <code>AddressBook</code>, <code>Model</code>, <code>ModelManager</code>, and finally <code>AddressBookParser</code>. <code>SortCommand</code> and <code>PersonCompare</code> were newly created and implemented classes.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The most challenging part of implementing the sorting command was actually in testing, because the model, addressbook, and the command itself all need to be tested. In fact, even after several hours of development to all test cases were passing locally, but failing on Travis. The problem ended up being that when several test cases are run consecutively they share the model and cause it to error, which was problematic for sorting because it requires implementation in all parts of the architecture.</p>
 </div>
 <div class="paragraph">
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/functional/luca590.md">Functional Code</a>][<a href="https://github.com/CS2103JAN2018-W10-B4/main/blob/master/collated/test/luca590.md">Test code</a>]</p>
@@ -132,13 +144,7 @@ Although sorting seems like a simple task, it required full integration with all
 <div class="ulist">
 <ul>
 <li>
-<p>Subitting and resolving issues with PRs</p>
-</li>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://a.com">#1</a>, <a href="https://a.com">#2</a>, <a href="https://a.com">#3</a>, <a href="https://a.com">#4</a></p>
-</li>
-<li>
-<p>Reported bugs and suggestions (examples:  <a href="https://a.com">1</a>, <a href="https://a.com">2</a>, <a href="https://a.com">3</a>)</p>
+<p>Reported bugs and suggestions (examples:  <a href="https://github.com/CS2103JAN2018-W10-B4/main/issues/108">Modification to .gitignore</a>, <a href="https://github.com/CS2103JAN2018-W10-B4/main/issues/174">Changing tag for imported contacts</a>, <a href="https://github.com/CS2103JAN2018-W10-B4/main/issues/175">Checking for duplicates in import contacts</a>)</p>
 </li>
 </ul>
 </div>
@@ -448,7 +454,7 @@ No arguments are necessary, can simply enter <code>sort</code> in CLI
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 14:59:40 UTC
+Last updated 2018-04-15 10:31:12 UTC
 </div>
 </div>
 </body>
