@@ -97,15 +97,18 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#deleting-dated-persons">G.1. Deleting dated persons</a></li>
-<li><a href="#adding-an-appointment">G.2. Adding an appointment</a></li>
-<li><a href="#deleting-an-appointment">G.3. Deleting an appointment</a></li>
-<li><a href="#zooming-in-calendar-view">G.4. Zooming in calendar view</a></li>
-<li><a href="#zooming-out-calendar-view">G.5. Zooming out calendar view</a></li>
-<li><a href="#going-backward-on-calendar-view">G.6. Going backward on calendar view</a></li>
-<li><a href="#going-forward-on-calendar-view">G.7. Going forward on calendar view</a></li>
-<li><a href="#adding-a-template">G.8. Adding a template</a></li>
-<li><a href="#deleting-a-template">G.9. Deleting a template</a></li>
-<li><a href="#sending-an-email">G.10. Sending an email</a></li>
+<li><a href="#importing-contacts">G.2. Importing Contacts</a></li>
+<li><a href="#exporting-contacts">G.3. Exporting Contacts</a></li>
+<li><a href="#sorting">G.4. Sorting</a></li>
+<li><a href="#adding-an-appointment">G.5. Adding an appointment</a></li>
+<li><a href="#deleting-an-appointment">G.6. Deleting an appointment</a></li>
+<li><a href="#zooming-in-calendar-view">G.7. Zooming in calendar view</a></li>
+<li><a href="#zooming-out-calendar-view">G.8. Zooming out calendar view</a></li>
+<li><a href="#going-backward-on-calendar-view">G.9. Going backward on calendar view</a></li>
+<li><a href="#going-forward-on-calendar-view">G.10. Going forward on calendar view</a></li>
+<li><a href="#adding-a-template">G.11. Adding a template</a></li>
+<li><a href="#deleting-a-template">G.12. Deleting a template</a></li>
+<li><a href="#sending-an-email">G.13. Sending an email</a></li>
 </ul>
 </li>
 </ul>
@@ -3605,7 +3608,91 @@ Expected: No person is deleted. Invalid command message is shown in the result b
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-appointment"><a class="link" href="#adding-an-appointment">G.2. Adding an appointment</a></h3>
+<h3 id="importing-contacts"><a class="link" href="#importing-contacts">G.2. Importing Contacts</a></h3>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+All tests should be done using the Command Line Interface(CLI). There should be no modification done to the calendar by clicking on it (GUI).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Importing contacts must be done with a .csv file with similar syntax command as exporting contacts.</p>
+</div>
+<div class="paragraph">
+<p>It is important to note the Name, Email, Address, and Phone number need to be in the correct order in the .csv file for the contacts to be imported correctly.</p>
+</div>
+<div class="paragraph">
+<p>More information is given in the  User Guide.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-contacts"><a class="link" href="#exporting-contacts">G.3. Exporting Contacts</a></h3>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+All tests should be done using the Command Line Interface(CLI). There should be no modification done to the calendar by clicking on it (GUI).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For manual testing type <code>ec</code> or <code>export_contacts</code> followed by the absolute path of a .csv file you would like to export to. It is important to note a couple things:</p>
+</div>
+<div class="ulist NOTE">
+<ul class="NOTE">
+<li>
+<p>The file must be a .csv file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Therefore, the file path should end in ".csv". Make sure to include the file ending at the end of the file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example if you are using a Mac and the file is a .csv file on your Desktop named "test", you could type <code>~/Users/[username]/Desktop/test.csv</code> to export the contacts. If the file doesn&#8217;t exist, it will be automatically created.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>What you should see is the excel file (even if it didn&#8217;t exist before) with the Name, Address, Phone, and Email of the contacts in the address book.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting"><a class="link" href="#sorting">G.4. Sorting</a></h3>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+All tests should be done using the Command Line Interface(CLI). There should be no modification done to the calendar by clicking on it (GUI).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This function can simply be tested by typing <code>sort</code> and/or <code>so</code> in the CLI.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-appointment"><a class="link" href="#adding-an-appointment">G.5. Adding an appointment</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3648,7 +3735,7 @@ Expected: No appointment is added. Invalid command message is shown in the resul
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-appointment"><a class="link" href="#deleting-an-appointment">G.3. Deleting an appointment</a></h3>
+<h3 id="deleting-an-appointment"><a class="link" href="#deleting-an-appointment">G.6. Deleting an appointment</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3687,7 +3774,7 @@ Expected: No appointment is deleted. Invalid command message is shown in the res
 </div>
 </div>
 <div class="sect2">
-<h3 id="zooming-in-calendar-view"><a class="link" href="#zooming-in-calendar-view">G.4. Zooming in calendar view</a></h3>
+<h3 id="zooming-in-calendar-view"><a class="link" href="#zooming-in-calendar-view">G.7. Zooming in calendar view</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3716,7 +3803,7 @@ Expected: The calendar does not zoom in anymore. Error message is shown in the r
 </div>
 </div>
 <div class="sect2">
-<h3 id="zooming-out-calendar-view"><a class="link" href="#zooming-out-calendar-view">G.5. Zooming out calendar view</a></h3>
+<h3 id="zooming-out-calendar-view"><a class="link" href="#zooming-out-calendar-view">G.8. Zooming out calendar view</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3745,7 +3832,7 @@ Expected: The calendar does not zoom out anymore. Error message is shown in the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="going-backward-on-calendar-view"><a class="link" href="#going-backward-on-calendar-view">G.6. Going backward on calendar view</a></h3>
+<h3 id="going-backward-on-calendar-view"><a class="link" href="#going-backward-on-calendar-view">G.9. Going backward on calendar view</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3771,7 +3858,7 @@ Expected: The calendar panel is now showing the previous day. Success message is
 </div>
 </div>
 <div class="sect2">
-<h3 id="going-forward-on-calendar-view"><a class="link" href="#going-forward-on-calendar-view">G.7. Going forward on calendar view</a></h3>
+<h3 id="going-forward-on-calendar-view"><a class="link" href="#going-forward-on-calendar-view">G.10. Going forward on calendar view</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3797,7 +3884,7 @@ Expected: The calendar panel is now showing the next day. Success message is sho
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-template"><a class="link" href="#adding-a-template">G.8. Adding a template</a></h3>
+<h3 id="adding-a-template"><a class="link" href="#adding-a-template">G.11. Adding a template</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3826,7 +3913,7 @@ Expected: Similar to previous</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-template"><a class="link" href="#deleting-a-template">G.9. Deleting a template</a></h3>
+<h3 id="deleting-a-template"><a class="link" href="#deleting-a-template">G.12. Deleting a template</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3855,7 +3942,7 @@ Expected: Similar to previous</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-an-email"><a class="link" href="#sending-an-email">G.10. Sending an email</a></h3>
+<h3 id="sending-an-email"><a class="link" href="#sending-an-email">G.13. Sending an email</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3893,7 +3980,7 @@ Expected: Similar to previous</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 10:31:12 UTC
+Last updated 2018-04-15 11:04:25 UTC
 </div>
 </div>
 </body>
